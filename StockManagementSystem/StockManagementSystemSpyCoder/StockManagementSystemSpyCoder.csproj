@@ -141,6 +141,9 @@
     <EmbeddedResource Include="StockOut.resx">
       <DependentUpon>StockOut.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\StockManagementSystemSpyCoder.Models.Categorie.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystemSpyCoder.Models.Companie.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystemSpyCoder.Models.Item.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

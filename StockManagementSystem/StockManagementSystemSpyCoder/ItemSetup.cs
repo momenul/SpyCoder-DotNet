@@ -15,12 +15,24 @@ namespace StockManagementSystemSpyCoder
     public partial class ItemSetup : UserControl
     {
         Item item = new Item();
-        string connectionString = @"Server =DESKTOP-O4TBSCE\SQLEXPRESS; Database = StockManagementSystem; Integrated Security = true ";
+        string connectionString = @"Server =DESKTOP-O4TBSCE\SQLEXPRESS; Database =StockManagementSystem; Integrated Security = true ";
         private SqlConnection sqlConnection;
 
         public ItemSetup()
         {
             InitializeComponent();
+
+            try
+            {
+
+                categoryComboBox.DataSource = Getcategorycombo();
+                companyComboBox.DataSource = Getcompanycombox();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ItemSetupSaveButton_Click(object sender, EventArgs e)
@@ -40,7 +52,8 @@ namespace StockManagementSystemSpyCoder
                 MessageBox.Show("Not saved");
             }
 
-            companyComboBox.Text = "";
+            itemNameTextBox.Text = "";
+            reorderLevelTextBox.Text = "";
         }
 
         private bool save(Item item)
@@ -53,7 +66,8 @@ namespace StockManagementSystemSpyCoder
                 //3
                 sqlConnection = new SqlConnection(connectionString);
                 //4
-                string query = @"INSERT INTO Items (Name, CategoryId, CompanyId, ReorderLevel) VALUES ('" + item.Name + "'," + item.CategoryId + "," + item.CompanyId + ",'" + item.ReorderLevel + "')";
+
+                string query = @"INSERT INTO Items (Name, CategoryId, CompanyId, ReorderLevel) VALUES ('" + item.Name + "'," + item.CategoryId + "," + item.CompanyId + "," + item.ReorderLevel + ")";
                 //5
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 //6
@@ -62,12 +76,10 @@ namespace StockManagementSystemSpyCoder
                 int isExecuted = sqlCommand.ExecuteNonQuery();
                 if (isExecuted > 0)
                 {
-                    //MessageBox.Show("Saved");
                     issaved = true;
                 }
                 else
                 {
-                    //MessageBox.Show("Not Saved");
                     issaved = false;
                 }
                 //8
@@ -84,10 +96,56 @@ namespace StockManagementSystemSpyCoder
 
         }
 
-        public int CategoryId { get; set; }
+        private DataTable Getcategorycombo()
+        {
+            //3
+            sqlConnection = new SqlConnection(connectionString);
 
-        public int CompanyId { get; set; }
+            //4
+            string query = @"SELECT Id, Name FROM Categories";
 
-        public int ReorderLevel { get; set; } 
+            //5
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+            //6
+            sqlConnection.Open();
+
+
+            SqlDataAdapter sqlDataAdaapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            sqlDataAdaapter.Fill(dataTable);
+
+
+            //8
+            sqlConnection.Close();
+
+            return dataTable;
+        }
+
+        private DataTable Getcompanycombox()
+        {
+            //3
+            sqlConnection = new SqlConnection(connectionString);
+
+            //4
+            string query = @"SELECT Id, Name FROM Companies";
+
+            //5
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+            //6
+            sqlConnection.Open();
+
+
+            SqlDataAdapter sqlDataAdaapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            sqlDataAdaapter.Fill(dataTable);
+
+
+            //8
+            sqlConnection.Close();
+
+            return dataTable;
+        }
     }
 }

@@ -13,5 +13,6 @@ namespace StockManagementSystemSpyCoder.Models
         public int CategoryId { get; set; }
         public int CompanyId { get; set; }
         public int ReorderLevel { get; set; }
+        public int Quantity { get; set; }
     }
 }

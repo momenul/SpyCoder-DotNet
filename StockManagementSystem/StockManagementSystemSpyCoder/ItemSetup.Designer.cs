@@ -38,16 +38,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.companyComboBox = new System.Windows.Forms.ComboBox();
-            this.stockManagementSystemDataSet = new StockManagementSystemSpyCoder.StockManagementSystemDataSet();
-            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoriesTableAdapter = new StockManagementSystemSpyCoder.StockManagementSystemDataSetTableAdapters.CategoriesTableAdapter();
-            this.stockManagementSystemDataSet1 = new StockManagementSystemSpyCoder.StockManagementSystemDataSet1();
-            this.companiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.companiesTableAdapter = new StockManagementSystemSpyCoder.StockManagementSystemDataSet1TableAdapters.CompaniesTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.companiesBindingSource)).BeginInit();
+            this.categorieBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.companieBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companieBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reorderLevelTextBox
@@ -119,7 +113,7 @@
             // 
             // categoryComboBox
             // 
-            this.categoryComboBox.DataSource = this.categoriesBindingSource;
+            this.categoryComboBox.DataSource = this.categorieBindingSource;
             this.categoryComboBox.DisplayMember = "Name";
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.Location = new System.Drawing.Point(213, 68);
@@ -130,7 +124,7 @@
             // 
             // companyComboBox
             // 
-            this.companyComboBox.DataSource = this.companiesBindingSource;
+            this.companyComboBox.DataSource = this.companieBindingSource;
             this.companyComboBox.DisplayMember = "Name";
             this.companyComboBox.FormattingEnabled = true;
             this.companyComboBox.Location = new System.Drawing.Point(213, 112);
@@ -139,33 +133,13 @@
             this.companyComboBox.TabIndex = 14;
             this.companyComboBox.ValueMember = "Id";
             // 
-            // stockManagementSystemDataSet
+            // categorieBindingSource
             // 
-            this.stockManagementSystemDataSet.DataSetName = "StockManagementSystemDataSet";
-            this.stockManagementSystemDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.categorieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Categorie);
             // 
-            // categoriesBindingSource
+            // companieBindingSource
             // 
-            this.categoriesBindingSource.DataMember = "Categories";
-            this.categoriesBindingSource.DataSource = this.stockManagementSystemDataSet;
-            // 
-            // categoriesTableAdapter
-            // 
-            this.categoriesTableAdapter.ClearBeforeFill = true;
-            // 
-            // stockManagementSystemDataSet1
-            // 
-            this.stockManagementSystemDataSet1.DataSetName = "StockManagementSystemDataSet1";
-            this.stockManagementSystemDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // companiesBindingSource
-            // 
-            this.companiesBindingSource.DataMember = "Companies";
-            this.companiesBindingSource.DataSource = this.stockManagementSystemDataSet1;
-            // 
-            // companiesTableAdapter
-            // 
-            this.companiesTableAdapter.ClearBeforeFill = true;
+            this.companieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Companie);
             // 
             // ItemSetup
             // 
@@ -182,10 +156,8 @@
             this.Controls.Add(this.label1);
             this.Name = "ItemSetup";
             this.Size = new System.Drawing.Size(502, 419);
-            ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stockManagementSystemDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.companiesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companieBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,12 +174,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.ComboBox companyComboBox;
-        private System.Windows.Forms.BindingSource categoriesBindingSource;
-        private StockManagementSystemDataSet stockManagementSystemDataSet;
-        private StockManagementSystemDataSetTableAdapters.CategoriesTableAdapter categoriesTableAdapter;
-        private System.Windows.Forms.BindingSource companiesBindingSource;
-        private StockManagementSystemDataSet1 stockManagementSystemDataSet1;
-        private StockManagementSystemDataSet1TableAdapters.CompaniesTableAdapter companiesTableAdapter;
+        private System.Windows.Forms.BindingSource categorieBindingSource;
+        private System.Windows.Forms.BindingSource companieBindingSource;
 
     }
 }
