@@ -36,15 +36,69 @@ namespace StockManagementSystemSpyCoder
                 MessageBox.Show(ex.Message);
             }
         }
- 
+        private void GetItemData(Item item)
+        {
+            sqlConnection = new SqlConnection(connectionString);
+
+            string query = @"select * from Items where Id=" + item.Id + "";
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+            sqlConnection.Open();
+
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            if (sqlDataReader.Read())
+            {
+                item.Name = sqlDataReader["Name"].ToString();
+                item.ReorderLevel = Convert.ToInt32(sqlDataReader["ReorderLevel"]);
+                item.Quantity = Convert.ToInt32(sqlDataReader["Quantity"]);
+            }
+            sqlConnection.Close();
+
+        }
+        private bool ValidationCheck()
+        {
+            bool isError = false;
+            if (String.IsNullOrEmpty(stockInQuantityTextBox.Text))
+            {
+                errorLabel.Text = "Please enter the value.";
+                isError = true;
+            }
+           
+
+            return isError;
+        }
+        private bool CheckReorder()
+        {
+            bool isReorder = false;
+            if (Convert.ToInt32(avalibleQuantityTextBox.Text) < Convert.ToInt32(reorderLevelTextBox.Text))
+            {
+                isReorder = true;
+            }
+            return isReorder;
+        }
+
+        private int c = 1;
         private void StockInSaveButton_Click(object sender, EventArgs e)
         {
- 
-            stocksIn.ItemId = Convert.ToInt32(itemComboBox.SelectedValue);
-            // stocksIn.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
-            // int companyId = Convert.ToInt32(companyStockInComboBox.SelectedValue);
-            item.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
+          try {
+
+             bool isValid = ValidationCheck();
+             bool isReorder = CheckReorder();            
+
+            item.Name = itemComboBox.Text;
+            company.Name = companyComboBox.Text;
+
             stocksIn.Quantity = Convert.ToInt32(stockInQuantityTextBox.Text);
+            stocksIn.ItemId = item.Id;
+            stocksIn.ItemId = Convert.ToInt32(itemComboBox.SelectedValue);
+            int availabelQuantity = Convert.ToInt32(avalibleQuantityTextBox.Text);
+            item.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
+
+            c++;
+
+            avalibleQuantityTextBox.Text = (Convert.ToInt32(avalibleQuantityTextBox.Text) +
+                                              Convert.ToInt32(stockInQuantityTextBox.Text)).ToString();
+
+            bool lastCheckIsReoreder = CheckReorder();
 
             bool isSave = Add(stocksIn);
 
@@ -57,10 +111,11 @@ namespace StockManagementSystemSpyCoder
                 MessageBox.Show("Not Saved");
             }
 
-           
-            itemComboBox.SelectedValue = "";
-            stockInQuantityTextBox.Text = "";
-           
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
         private bool Add(StocksIn stocksIn)
         {
@@ -154,6 +209,14 @@ namespace StockManagementSystemSpyCoder
         {
             item.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
             itemComboBox.DataSource = GetItemsCombo(item);
+        }
+
+        private void itemComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            item.Id = Convert.ToInt32(itemComboBox.SelectedValue);
+            GetItemData(item);
+            reorderLevelTextBox.Text = item.ReorderLevel.ToString();
+            avalibleQuantityTextBox.Text = item.Quantity.ToString();
         }
     }
 }

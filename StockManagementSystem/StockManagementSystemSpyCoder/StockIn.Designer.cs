@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.companyComboBox = new System.Windows.Forms.ComboBox();
+            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.companieBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itemComboBox = new System.Windows.Forms.ComboBox();
-            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stockInQuantityTextBox = new System.Windows.Forms.TextBox();
             this.reorderLevelTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,8 +43,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.avalibleQuantityTextBox = new System.Windows.Forms.TextBox();
             this.errorLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.companieBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companieBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // companyComboBox
@@ -58,6 +58,10 @@
             this.companyComboBox.TabIndex = 27;
             this.companyComboBox.ValueMember = "Id";
             this.companyComboBox.SelectedIndexChanged += new System.EventHandler(this.companyComboBox_SelectedIndexChanged);
+            // 
+            // itemBindingSource
+            // 
+            this.itemBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Item);
             // 
             // companieBindingSource
             // 
@@ -73,10 +77,7 @@
             this.itemComboBox.Size = new System.Drawing.Size(186, 21);
             this.itemComboBox.TabIndex = 26;
             this.itemComboBox.ValueMember = "Id";
-            // 
-            // itemBindingSource
-            // 
-            this.itemBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Item);
+            this.itemComboBox.SelectedIndexChanged += new System.EventHandler(this.itemComboBox_SelectedIndexChanged);
             // 
             // stockInQuantityTextBox
             // 
@@ -190,8 +191,8 @@
             this.Controls.Add(this.label1);
             this.Name = "StockIn";
             this.Size = new System.Drawing.Size(500, 405);
-            ((System.ComponentModel.ISupportInitialize)(this.companieBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companieBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
