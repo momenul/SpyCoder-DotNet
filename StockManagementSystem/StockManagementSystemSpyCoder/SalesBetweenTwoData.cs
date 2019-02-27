@@ -16,5 +16,10 @@ namespace StockManagementSystemSpyCoder
         {
             InitializeComponent();
         }
+
+        private void SalesBetweenTwoDataSearchButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -55,7 +55,7 @@
             // 
             // companieBindingSource
             // 
-            this.companieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Companie);
+            this.companieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Company);
             // 
             // categoryComboBox
             // 
@@ -70,7 +70,7 @@
             // 
             // categorieBindingSource
             // 
-            this.categorieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Categorie);
+            this.categorieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Category);
             // 
             // label4
             // 

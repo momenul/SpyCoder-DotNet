@@ -15,10 +15,10 @@ namespace StockManagementSystemSpyCoder
 {
     public partial class StockIn : UserControl
     {
-        private string connectionString = @"Server =DESKTOP-O4TBSCE\SQLEXPRESS; Database =StockManagementSystem; Integrated Security = true ";
+        private string connectionString = @"Server =DESKTOP-IQOQ25D\SQLEXPRESS; Database =StockManagementSystem; Integrated Security = true ";
         private SqlConnection sqlConnection;
 
-        private Companie company = new Companie();
+        private Company company = new Company();
         private Item item = new Item();
         private StocksIn stocksIn = new StocksIn();
         public StockIn()
@@ -66,23 +66,12 @@ namespace StockManagementSystemSpyCoder
 
             return isError;
         }
-        private bool CheckReorder()
-        {
-            bool isReorder = false;
-            if (Convert.ToInt32(avalibleQuantityTextBox.Text) < Convert.ToInt32(reorderLevelTextBox.Text))
-            {
-                isReorder = true;
-            }
-            return isReorder;
-        }
 
-        private int c = 1;
         private void StockInSaveButton_Click(object sender, EventArgs e)
         {
           try {
 
-             bool isValid = ValidationCheck();
-             bool isReorder = CheckReorder();            
+             bool isValid = ValidationCheck();           
 
             item.Name = itemComboBox.Text;
             company.Name = companyComboBox.Text;
@@ -93,13 +82,8 @@ namespace StockManagementSystemSpyCoder
             int availabelQuantity = Convert.ToInt32(avalibleQuantityTextBox.Text);
             item.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
 
-            c++;
-
             avalibleQuantityTextBox.Text = (Convert.ToInt32(avalibleQuantityTextBox.Text) +
                                               Convert.ToInt32(stockInQuantityTextBox.Text)).ToString();
-
-            bool lastCheckIsReoreder = CheckReorder();
-
             bool isSave = Add(stocksIn);
 
             if (isSave)
@@ -123,7 +107,6 @@ namespace StockManagementSystemSpyCoder
 
             try
             {
-
                 sqlConnection = new SqlConnection(connectionString);
 
                 string query = @"INSERT INTO StockIn (ItemId, Quantity) VALUES ( " + stocksIn.ItemId + "," + stocksIn.Quantity + ")";

@@ -65,7 +65,7 @@
             // 
             // companieBindingSource
             // 
-            this.companieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Companie);
+            this.companieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Company);
             // 
             // itemComboBox
             // 

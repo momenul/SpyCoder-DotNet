@@ -15,7 +15,7 @@ namespace StockManagementSystemSpyCoder
     public partial class SearchAndView : UserControl
     {
         Item item = new Item();
-        string connectionString = @"Server =DESKTOP-O4TBSCE\SQLEXPRESS; Database =StockManagementSystem; Integrated Security = true ";
+        string connectionString = @"Server =DESKTOP-IQOQ25D\SQLEXPRESS; Database =StockManagementSystem; Integrated Security = true ";
         private SqlConnection sqlConnection;
 
         public SearchAndView()

@@ -143,6 +143,7 @@
             this.StockOutAddButton.TabIndex = 37;
             this.StockOutAddButton.Text = "Add";
             this.StockOutAddButton.UseVisualStyleBackColor = false;
+            this.StockOutAddButton.Click += new System.EventHandler(this.StockOutAddButton_Click);
             // 
             // label1
             // 
