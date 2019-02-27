@@ -61,7 +61,7 @@
             // 
             // itemBindingSource
             // 
-            this.itemBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Item);
+           
             // 
             // companieBindingSource
             // 

@@ -16,7 +16,9 @@ namespace StockManagementSystemSpyCoder
     {
 
         Category categorie = new Category();
+
         string connectionString = @"Server =DESKTOP-O4TBSCE\SQLEXPRESS; Database = StockManagementSystem; Integrated Security = true ";
+
         private SqlConnection sqlConnection;
 
         public CategorySetupUi()
