@@ -38,19 +38,17 @@
             // categoriesGridView
             // 
             this.categoriesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.categoriesGridView.Location = new System.Drawing.Point(187, 172);
+            this.categoriesGridView.Location = new System.Drawing.Point(228, 203);
             this.categoriesGridView.Name = "categoriesGridView";
-            this.categoriesGridView.Size = new System.Drawing.Size(261, 150);
+            this.categoriesGridView.Size = new System.Drawing.Size(258, 158);
             this.categoriesGridView.TabIndex = 26;
-            
             // 
             // categorySetupNameTextBox
             // 
-            this.categorySetupNameTextBox.Location = new System.Drawing.Point(190, 32);
+            this.categorySetupNameTextBox.Location = new System.Drawing.Point(228, 63);
             this.categorySetupNameTextBox.Name = "categorySetupNameTextBox";
             this.categorySetupNameTextBox.Size = new System.Drawing.Size(261, 20);
             this.categorySetupNameTextBox.TabIndex = 29;
-            
             // 
             // categorySetupSaveButton
             // 
@@ -58,7 +56,7 @@
             this.categorySetupSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categorySetupSaveButton.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categorySetupSaveButton.ForeColor = System.Drawing.Color.White;
-            this.categorySetupSaveButton.Location = new System.Drawing.Point(361, 90);
+            this.categorySetupSaveButton.Location = new System.Drawing.Point(399, 121);
             this.categorySetupSaveButton.Name = "categorySetupSaveButton";
             this.categorySetupSaveButton.Size = new System.Drawing.Size(90, 34);
             this.categorySetupSaveButton.TabIndex = 28;
@@ -71,12 +69,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Schoolbook", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(104, 32);
+            this.label1.Location = new System.Drawing.Point(89, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 15);
             this.label1.TabIndex = 27;
             this.label1.Text = "Name";
-          
             // 
             // CategorySetupUi
             // 
@@ -87,7 +84,7 @@
             this.Controls.Add(this.categorySetupSaveButton);
             this.Controls.Add(this.label1);
             this.Name = "CategorySetupUi";
-            this.Size = new System.Drawing.Size(554, 354);
+            this.Size = new System.Drawing.Size(589, 396);
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

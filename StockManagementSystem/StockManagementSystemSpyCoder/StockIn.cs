@@ -21,15 +21,13 @@ namespace StockManagementSystemSpyCoder
         private Companie company = new Companie();
         private Item item = new Item();
         private StocksIn stocksIn = new StocksIn();
+
         public StockIn()
         {
-
             InitializeComponent();
             try
             {
-
                 companyComboBox.DataSource = GetCompanyCombo();
-
             }
             catch (Exception ex)
             {
@@ -52,7 +50,6 @@ namespace StockManagementSystemSpyCoder
                 item.Quantity = Convert.ToInt32(sqlDataReader["Quantity"]);
             }
             sqlConnection.Close();
-
         }
         private bool ValidationCheck()
         {
@@ -61,8 +58,7 @@ namespace StockManagementSystemSpyCoder
             {
                 errorLabel.Text = "Please enter the value.";
                 isError = true;
-            }
-           
+            }         
 
             return isError;
         }
@@ -123,16 +119,12 @@ namespace StockManagementSystemSpyCoder
 
             try
             {
-
                 sqlConnection = new SqlConnection(connectionString);
 
                 string query = @"INSERT INTO StockIn (ItemId, Quantity) VALUES ( " + stocksIn.ItemId + "," + stocksIn.Quantity + ")";
                 
-                //5
-                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                //6
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);            
                 sqlConnection.Open();
-                //7
                 int isExecuted = sqlCommand.ExecuteNonQuery();
                 if (isExecuted > 0)
                 {
@@ -143,7 +135,6 @@ namespace StockManagementSystemSpyCoder
                     isSucces = false;
                 }
 
-                //8
                 sqlConnection.Close();
             }
             catch (Exception exception)
@@ -152,54 +143,33 @@ namespace StockManagementSystemSpyCoder
                 MessageBox.Show(exception.Message);
             }
             return isSucces;
-
         }
 
         private DataTable GetCompanyCombo()
         {
-            //3
             sqlConnection = new SqlConnection(connectionString);
-
-            //4
             string query = @"SELECT Id, Name FROM Companies";
-           
-            //5
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-
-            //6
             sqlConnection.Open();
-
 
             SqlDataAdapter sqlDataAdaapter = new SqlDataAdapter(sqlCommand);
             DataTable dataTable = new DataTable();
             sqlDataAdaapter.Fill(dataTable);
 
-
-            //8
             sqlConnection.Close();
 
             return dataTable;
         }
         private DataTable GetItemsCombo(Item item)
         {
-            //3
             sqlConnection = new SqlConnection(connectionString);
 
-            //4
             string query = @"SELECT Id, Name FROM Items WHERE CompanyId=" + item.CompanyId + "";
-            //5
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-
-            //6
             sqlConnection.Open();
-
-
             SqlDataAdapter sqlDataAdaapter = new SqlDataAdapter(sqlCommand);
             DataTable dataTable = new DataTable();
             sqlDataAdaapter.Fill(dataTable);
-
-
-            //8
             sqlConnection.Close();
 
             return dataTable;

@@ -24,10 +24,8 @@ namespace StockManagementSystemSpyCoder
 
             try
             {
-
                 categoryComboBox.DataSource = Getcategorycombo();
                 companyComboBox.DataSource = Getcompanycombox();
-
             }
             catch (Exception ex)
             {

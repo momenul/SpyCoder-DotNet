@@ -38,16 +38,16 @@
             // companyDataGridView
             // 
             this.companyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.companyDataGridView.Location = new System.Drawing.Point(243, 184);
+            this.companyDataGridView.Location = new System.Drawing.Point(232, 193);
             this.companyDataGridView.Name = "companyDataGridView";
-            this.companyDataGridView.Size = new System.Drawing.Size(247, 140);
+            this.companyDataGridView.Size = new System.Drawing.Size(258, 154);
             this.companyDataGridView.TabIndex = 32;
             // 
             // companySetupNameTextBox
             // 
-            this.companySetupNameTextBox.Location = new System.Drawing.Point(212, 67);
+            this.companySetupNameTextBox.Location = new System.Drawing.Point(232, 67);
             this.companySetupNameTextBox.Name = "companySetupNameTextBox";
-            this.companySetupNameTextBox.Size = new System.Drawing.Size(278, 20);
+            this.companySetupNameTextBox.Size = new System.Drawing.Size(258, 20);
             this.companySetupNameTextBox.TabIndex = 31;
             // 
             // CompanySetupSaveButton
@@ -55,9 +55,9 @@
             this.CompanySetupSaveButton.BackColor = System.Drawing.Color.RoyalBlue;
             this.CompanySetupSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CompanySetupSaveButton.ForeColor = System.Drawing.Color.White;
-            this.CompanySetupSaveButton.Location = new System.Drawing.Point(395, 115);
+            this.CompanySetupSaveButton.Location = new System.Drawing.Point(395, 123);
             this.CompanySetupSaveButton.Name = "CompanySetupSaveButton";
-            this.CompanySetupSaveButton.Size = new System.Drawing.Size(95, 29);
+            this.CompanySetupSaveButton.Size = new System.Drawing.Size(95, 35);
             this.CompanySetupSaveButton.TabIndex = 30;
             this.CompanySetupSaveButton.Text = "Save";
             this.CompanySetupSaveButton.UseVisualStyleBackColor = false;
@@ -82,7 +82,7 @@
             this.Controls.Add(this.CompanySetupSaveButton);
             this.Controls.Add(this.label1);
             this.Name = "CompanySetupUi";
-            this.Size = new System.Drawing.Size(556, 391);
+            this.Size = new System.Drawing.Size(575, 391);
             ((System.ComponentModel.ISupportInitialize)(this.companyDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

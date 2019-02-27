@@ -49,12 +49,11 @@ namespace StockManagementSystemSpyCoder
 
                     sqlConnection = new SqlConnection(connectionString);
                     string query = @"SELECT * FROM ViewItems WHERE Company = '" + companySearch + "' and Category='" + categorySearch + "'";
-                  
-                    //5
+
                     SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                    //6
+
                     sqlConnection.Open();
-                    //7
+
                     SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
                     DataTable dataTable = new DataTable();
                     sqlDataAdapter.Fill(dataTable);
@@ -74,49 +73,38 @@ namespace StockManagementSystemSpyCoder
         }
         private DataTable GetCompanyCombo()
         {
-            //3
+
             sqlConnection = new SqlConnection(connectionString);
 
-            //4
             string query = @"SELECT Id, Name FROM Companies";
-            
-            //5
+
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
-            //6
             sqlConnection.Open();
-
 
             SqlDataAdapter sqlDataAdaapter = new SqlDataAdapter(sqlCommand);
             DataTable dataTable = new DataTable();
             sqlDataAdaapter.Fill(dataTable);
 
-
-            //8
             sqlConnection.Close();
 
             return dataTable;
         }
         private DataTable GetCategoryCombo()
         {
-            //3
+
             sqlConnection = new SqlConnection(connectionString);
 
-            //4
             string query = @"SELECT Id, Name FROM Categories";
-            //5
+           
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
-            //6
             sqlConnection.Open();
-
 
             SqlDataAdapter sqlDataAdaapter = new SqlDataAdapter(sqlCommand);
             DataTable dataTable = new DataTable();
             sqlDataAdaapter.Fill(dataTable);
 
-
-            //8
             sqlConnection.Close();
 
             return dataTable;

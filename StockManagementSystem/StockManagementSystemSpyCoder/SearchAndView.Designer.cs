@@ -47,7 +47,7 @@
             this.companyComboBox.DataSource = this.companieBindingSource;
             this.companyComboBox.DisplayMember = "Name";
             this.companyComboBox.FormattingEnabled = true;
-            this.companyComboBox.Location = new System.Drawing.Point(210, 32);
+            this.companyComboBox.Location = new System.Drawing.Point(289, 44);
             this.companyComboBox.Name = "companyComboBox";
             this.companyComboBox.Size = new System.Drawing.Size(186, 21);
             this.companyComboBox.TabIndex = 61;
@@ -62,7 +62,7 @@
             this.categoryComboBox.DataSource = this.categorieBindingSource;
             this.categoryComboBox.DisplayMember = "Name";
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(210, 76);
+            this.categoryComboBox.Location = new System.Drawing.Point(289, 88);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(186, 21);
             this.categoryComboBox.TabIndex = 60;
@@ -76,7 +76,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Schoolbook", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(89, 76);
+            this.label4.Location = new System.Drawing.Point(168, 88);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 15);
             this.label4.TabIndex = 51;
@@ -86,7 +86,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Schoolbook", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(89, 35);
+            this.label3.Location = new System.Drawing.Point(168, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 15);
             this.label3.TabIndex = 52;
@@ -97,9 +97,9 @@
             this.SearchAndViewButton.BackColor = System.Drawing.Color.RoyalBlue;
             this.SearchAndViewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchAndViewButton.ForeColor = System.Drawing.Color.White;
-            this.SearchAndViewButton.Location = new System.Drawing.Point(307, 145);
+            this.SearchAndViewButton.Location = new System.Drawing.Point(386, 152);
             this.SearchAndViewButton.Name = "SearchAndViewButton";
-            this.SearchAndViewButton.Size = new System.Drawing.Size(89, 31);
+            this.SearchAndViewButton.Size = new System.Drawing.Size(89, 36);
             this.SearchAndViewButton.TabIndex = 56;
             this.SearchAndViewButton.Text = "Search";
             this.SearchAndViewButton.UseVisualStyleBackColor = false;
@@ -108,9 +108,9 @@
             // searchAndViewDataGridView
             // 
             this.searchAndViewDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.searchAndViewDataGridView.Location = new System.Drawing.Point(51, 211);
+            this.searchAndViewDataGridView.Location = new System.Drawing.Point(51, 229);
             this.searchAndViewDataGridView.Name = "searchAndViewDataGridView";
-            this.searchAndViewDataGridView.Size = new System.Drawing.Size(512, 190);
+            this.searchAndViewDataGridView.Size = new System.Drawing.Size(530, 190);
             this.searchAndViewDataGridView.TabIndex = 62;
             // 
             // SearchAndView
@@ -124,7 +124,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.SearchAndViewButton);
             this.Name = "SearchAndView";
-            this.Size = new System.Drawing.Size(595, 442);
+            this.Size = new System.Drawing.Size(631, 442);
             ((System.ComponentModel.ISupportInitialize)(this.companieBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchAndViewDataGridView)).EndInit();
