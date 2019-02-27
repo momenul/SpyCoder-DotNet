@@ -68,8 +68,8 @@
     <Compile Include="ItemSetup.Designer.cs">
       <DependentUpon>ItemSetup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Categorie.cs" />
-    <Compile Include="Models\Companie.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\StocksIn.cs" />
     <Compile Include="Program.cs" />
@@ -91,16 +91,6 @@
     </Compile>
     <Compile Include="StockIn.Designer.cs">
       <DependentUpon>StockIn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="StockManagementSystemDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StockManagementSystemDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="StockManagementSystemDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StockManagementSystemDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="StockOut.cs">
       <SubType>UserControl</SubType>
@@ -153,28 +143,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="StockManagementSystemDataSet.xsc">
-      <DependentUpon>StockManagementSystemDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="StockManagementSystemDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>StockManagementSystemDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="StockManagementSystemDataSet.xss">
-      <DependentUpon>StockManagementSystemDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="StockManagementSystemDataSet1.xsc">
-      <DependentUpon>StockManagementSystemDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="StockManagementSystemDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>StockManagementSystemDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="StockManagementSystemDataSet1.xss">
-      <DependentUpon>StockManagementSystemDataSet1.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

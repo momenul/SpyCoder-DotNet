@@ -14,7 +14,7 @@ namespace StockManagementSystemSpyCoder
 {
     public partial class CompanySetupUi : UserControl
     {
-        Companie companie = new Companie();
+        Company companie = new Company();
         string connectionString = @"Server =DESKTOP-O4TBSCE\SQLEXPRESS; Database = StockManagementSystem; Integrated Security = true ";
         private SqlConnection sqlConnection;
 
@@ -69,7 +69,7 @@ namespace StockManagementSystemSpyCoder
             return dataTable;
         }
 
-        private bool Add(Companie companie)
+        private bool Add(Company companie)
         {
             bool isSucces = false;
 

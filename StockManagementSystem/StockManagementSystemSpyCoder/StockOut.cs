@@ -21,5 +21,10 @@ namespace StockManagementSystemSpyCoder
         {
 
         }
+
+        private void StockOutAddButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StockManagementSystemSpyCoder.Models
 {
-    public class Companie
+    public class Category
     {
         public int Id { get; set; }
         public string Name { get; set; } 

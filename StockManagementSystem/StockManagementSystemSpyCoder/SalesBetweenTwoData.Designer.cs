@@ -123,6 +123,7 @@
             this.SalesBetweenTwoDataSearchButton.TabIndex = 69;
             this.SalesBetweenTwoDataSearchButton.Text = "Search";
             this.SalesBetweenTwoDataSearchButton.UseVisualStyleBackColor = false;
+            this.SalesBetweenTwoDataSearchButton.Click += new System.EventHandler(this.SalesBetweenTwoDataSearchButton_Click);
             // 
             // label1
             // 

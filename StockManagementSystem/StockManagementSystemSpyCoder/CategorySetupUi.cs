@@ -15,7 +15,7 @@ namespace StockManagementSystemSpyCoder
     public partial class CategorySetupUi : UserControl
     {
 
-        Categorie categorie = new Categorie();
+        Category categorie = new Category();
         string connectionString = @"Server =DESKTOP-O4TBSCE\SQLEXPRESS; Database = StockManagementSystem; Integrated Security = true ";
         private SqlConnection sqlConnection;
 
@@ -69,7 +69,7 @@ namespace StockManagementSystemSpyCoder
             return dataTable;
         }
 
-        private bool Add(Categorie categorie)
+        private bool Add(Category categorie)
         {
             bool isSucces = false;
 
