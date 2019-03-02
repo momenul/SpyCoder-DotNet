@@ -58,16 +58,43 @@ namespace StockManagementSystemSpyCoder
             {
                 errorLabel.Text = "Please enter the value.";
                 isError = true;
-            }         
+            }
+            else if (Convert.ToInt32(stockInQuantityTextBox.Text) <= 0)
+            {
+                errorLabel.Text = "Please enter Positive value.";
+                isError = true;
+            }
 
             return isError;
+        }
+        private bool CheckReorder()
+        {
+            bool isReorder = false;
+            if (Convert.ToInt32(avalibleQuantityTextBox.Text) < Convert.ToInt32(reorderLevelTextBox.Text))
+            {
+                isReorder = true;
+            }
+            return isReorder;
         }
 
         private void StockInSaveButton_Click(object sender, EventArgs e)
         {
           try {
+             bool isValid = ValidationCheck();
+             bool isReorder = CheckReorder();
+             if (isReorder)
+             {
+                 MessageBox.Show("Please reorder this item.");
+             }
+             if (isValid)
+             {
+                 return;
+             }
 
-             bool isValid = ValidationCheck();           
+             else
+             {
+                 errorLabel.Text = "";
+             }
 
             item.Name = itemComboBox.Text;
             company.Name = companyComboBox.Text;
@@ -90,6 +117,7 @@ namespace StockManagementSystemSpyCoder
             {
                 MessageBox.Show("Not Saved");
             }
+            stockInQuantityTextBox.Text = "";
 
             }
             catch (Exception exception)
@@ -129,6 +157,39 @@ namespace StockManagementSystemSpyCoder
             return isSucces;
         }
 
+        private bool IsertStockInData(StocksIn stocksIn)
+        {
+            bool isSuccess = false;
+            sqlConnection = new SqlConnection(connectionString);
+
+            for (int i = 0; i < stocksIn.Quantity; i++)
+            {
+                //stocksIn.ItemId = Convert.ToInt32(stockOutDataGridView.Rows[i].Cells[4].Value);
+                stocksIn.Quantity = Convert.ToInt32(avalibleQuantityTextBox.Text);
+                int updateQuantity = (Convert.ToInt32(avalibleQuantityTextBox.Text)) + stocksIn.Quantity;
+
+                string query = @"insert into StockIn (ItemId, Quantity) values (" + stocksIn.ItemId + ", " + stocksIn.Quantity + ")";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                string updateQuery = @"UPDATE Items SET Quantity = " + updateQuantity + " where Id= " + stocksIn.ItemId + "";
+                SqlCommand sqlCommandUpdate = new SqlCommand(updateQuery, sqlConnection);
+                sqlConnection.Open();
+                int isExecuted = sqlCommand.ExecuteNonQuery();
+                int isExecuted2 = sqlCommandUpdate.ExecuteNonQuery();
+                if (isExecuted > 0 && isExecuted2 > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+                sqlConnection.Close();
+            }
+
+            return isSuccess;
+
+        }
         private DataTable GetCompanyCombo()
         {
             sqlConnection = new SqlConnection(connectionString);
