@@ -107,15 +107,15 @@ namespace StockManagementSystemSpyCoder
 
             avalibleQuantityTextBox.Text = (Convert.ToInt32(avalibleQuantityTextBox.Text) +
                                               Convert.ToInt32(stockInQuantityTextBox.Text)).ToString();
-            bool isSave = Add(stocksIn);
-
+           
+            bool isSave = IsertStockInData(stocksIn);
             if (isSave)
             {
-                MessageBox.Show("Saved");
+                MessageBox.Show("Successful Stock In");
             }
             else
             {
-                MessageBox.Show("Not Saved");
+                MessageBox.Show("Quantity Not Saved");
             }
             stockInQuantityTextBox.Text = "";
 
@@ -125,38 +125,7 @@ namespace StockManagementSystemSpyCoder
                 MessageBox.Show(exception.Message);
             }
         }
-        private bool Add(StocksIn stocksIn)
-        {
-            bool isSucces = false;
-
-            try
-            {
-                sqlConnection = new SqlConnection(connectionString);
-
-                string query = @"INSERT INTO StockIn (ItemId, Quantity) VALUES ( " + stocksIn.ItemId + "," + stocksIn.Quantity + ")";
-                
-                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);            
-                sqlConnection.Open();
-                int isExecuted = sqlCommand.ExecuteNonQuery();
-                if (isExecuted > 0)
-                {
-                    isSucces = true;
-                }
-                else
-                {
-                    isSucces = false;
-                }
-
-                sqlConnection.Close();
-            }
-            catch (Exception exception)
-            {
-
-                MessageBox.Show(exception.Message);
-            }
-            return isSucces;
-        }
-
+     
         private bool IsertStockInData(StocksIn stocksIn)
         {
             bool isSuccess = false;
@@ -164,7 +133,6 @@ namespace StockManagementSystemSpyCoder
 
             for (int i = 0; i < stocksIn.Quantity; i++)
             {
-                //stocksIn.ItemId = Convert.ToInt32(stockOutDataGridView.Rows[i].Cells[4].Value);
                 stocksIn.Quantity = Convert.ToInt32(avalibleQuantityTextBox.Text);
                 int updateQuantity = (Convert.ToInt32(avalibleQuantityTextBox.Text)) + stocksIn.Quantity;
 
@@ -186,9 +154,7 @@ namespace StockManagementSystemSpyCoder
                 }
                 sqlConnection.Close();
             }
-
             return isSuccess;
-
         }
         private DataTable GetCompanyCombo()
         {

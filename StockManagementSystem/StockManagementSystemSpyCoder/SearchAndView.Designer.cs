@@ -37,6 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.SearchAndViewButton = new System.Windows.Forms.Button();
             this.searchAndViewDataGridView = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.companieBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchAndViewDataGridView)).BeginInit();
@@ -52,14 +53,11 @@
             this.companyComboBox.Size = new System.Drawing.Size(186, 21);
             this.companyComboBox.TabIndex = 61;
             this.companyComboBox.ValueMember = "Id";
+            this.companyComboBox.SelectedIndexChanged += new System.EventHandler(this.companyComboBox_SelectedIndexChanged);
             // 
             // companieBindingSource
             // 
-
-          //  this.companieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Company);
-
             this.companieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Company);
-
             // 
             // categoryComboBox
             // 
@@ -71,12 +69,11 @@
             this.categoryComboBox.Size = new System.Drawing.Size(186, 21);
             this.categoryComboBox.TabIndex = 60;
             this.categoryComboBox.ValueMember = "Id";
+            this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryComboBox_SelectedIndexChanged);
             // 
             // categorieBindingSource
             // 
-
             this.categorieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Category);
-
             // 
             // label4
             // 
@@ -114,10 +111,19 @@
             // searchAndViewDataGridView
             // 
             this.searchAndViewDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.searchAndViewDataGridView.Location = new System.Drawing.Point(51, 229);
+            this.searchAndViewDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID});
+            this.searchAndViewDataGridView.Location = new System.Drawing.Point(39, 229);
             this.searchAndViewDataGridView.Name = "searchAndViewDataGridView";
-            this.searchAndViewDataGridView.Size = new System.Drawing.Size(530, 190);
+            this.searchAndViewDataGridView.Size = new System.Drawing.Size(612, 190);
             this.searchAndViewDataGridView.TabIndex = 62;
+            // 
+            // ID
+            // 
+            this.ID.FillWeight = 50F;
+            this.ID.HeaderText = "No.";
+            this.ID.Name = "ID";
+            this.ID.Width = 50;
             // 
             // SearchAndView
             // 
@@ -130,7 +136,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.SearchAndViewButton);
             this.Name = "SearchAndView";
-            this.Size = new System.Drawing.Size(631, 442);
+            this.Size = new System.Drawing.Size(663, 442);
             ((System.ComponentModel.ISupportInitialize)(this.companieBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchAndViewDataGridView)).EndInit();
@@ -149,5 +155,6 @@
         private System.Windows.Forms.BindingSource companieBindingSource;
         private System.Windows.Forms.BindingSource categorieBindingSource;
         private System.Windows.Forms.DataGridView searchAndViewDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
     }
 }

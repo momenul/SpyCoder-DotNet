@@ -15,6 +15,8 @@ namespace StockManagementSystemSpyCoder
     public partial class SearchAndView : UserControl
     {
         Item item = new Item();
+        private Company company = new Company();
+        Category category = new Category();
         string connectionString = @"Server =DESKTOP-O4TBSCE\SQLEXPRESS; Database =StockManagementSystem; Integrated Security = true ";
         private SqlConnection sqlConnection;
 
@@ -36,9 +38,10 @@ namespace StockManagementSystemSpyCoder
         {
             string companySearch = companyComboBox.Text;
             string categorySearch = categoryComboBox.Text;
-
+            
             try
             {
+            
                 if (companySearch == "" || categorySearch == "")
                 {
                     MessageBox.Show("Plase fill out field.");
@@ -48,7 +51,8 @@ namespace StockManagementSystemSpyCoder
                 {
 
                     sqlConnection = new SqlConnection(connectionString);
-                    string query = @"SELECT * FROM ViewItems WHERE Company = '" + companySearch + "' and Category='" + categorySearch + "'";
+                   // string query = @"SELECT * FROM ViewItems WHERE Company = '" + companySearch + "' and Category='" + categorySearch + "'";
+                    string query = @"SELECT * FROM ViewsSearch WHERE Companie = '" + companySearch + "' and Categorie='" + categorySearch + "'";
 
                     SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
@@ -59,12 +63,18 @@ namespace StockManagementSystemSpyCoder
                     sqlDataAdapter.Fill(dataTable);
 
                     searchAndViewDataGridView.DataSource = dataTable;
-                   
-                    companyComboBox.Text = "";
-                    categoryComboBox.Text = "";
+
+                    int cellNum = 0;
+                    int rowNum = 0;
+                    foreach (DataGridViewRow row in searchAndViewDataGridView.Rows)
+                    {
+                        cellNum = cellNum + 1;
+                        searchAndViewDataGridView.Rows[rowNum].Cells[0].Value = cellNum;
+                        rowNum = rowNum + 1;
+                    }
 
                     sqlConnection.Close();
-                }
+                }              
             }
             catch (Exception exception)
             {
@@ -109,5 +119,21 @@ namespace StockManagementSystemSpyCoder
 
             return dataTable;
         }
+        private void companyComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //item.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
+            //string companySearch = companyComboBox.Text;
+           // categoryComboBox.DataSource = GetCategoryData(category);
+        }
+
+        private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+           //string categorySearch = categoryComboBox.Text;
+           // GetCategoryData(category);
+           // GetItemData(item);
+        }
+
+       
     }
 }
