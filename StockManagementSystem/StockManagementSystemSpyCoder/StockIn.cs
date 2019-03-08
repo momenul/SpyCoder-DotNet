@@ -131,20 +131,15 @@ namespace StockManagementSystemSpyCoder
             bool isSuccess = false;
             sqlConnection = new SqlConnection(connectionString);
 
-            for (int i = 0; i < stocksIn.Quantity; i++)
-            {
                 stocksIn.Quantity = Convert.ToInt32(avalibleQuantityTextBox.Text);
                 int updateQuantity = (Convert.ToInt32(avalibleQuantityTextBox.Text)) + stocksIn.Quantity;
-
-                string query = @"insert into StockIn (ItemId, Quantity) values (" + stocksIn.ItemId + ", " + stocksIn.Quantity + ")";
-                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
                 string updateQuery = @"UPDATE Items SET Quantity = " + updateQuantity + " where Id= " + stocksIn.ItemId + "";
                 SqlCommand sqlCommandUpdate = new SqlCommand(updateQuery, sqlConnection);
                 sqlConnection.Open();
-                int isExecuted = sqlCommand.ExecuteNonQuery();
-                int isExecuted2 = sqlCommandUpdate.ExecuteNonQuery();
-                if (isExecuted > 0 && isExecuted2 > 0)
+              
+                int isExecuted = sqlCommandUpdate.ExecuteNonQuery();
+                if ( isExecuted > 0)
                 {
                     isSuccess = true;
                 }
@@ -153,7 +148,7 @@ namespace StockManagementSystemSpyCoder
                     isSuccess = false;
                 }
                 sqlConnection.Close();
-            }
+           
             return isSuccess;
         }
         private DataTable GetCompanyCombo()
