@@ -17,13 +17,15 @@ namespace StockManagementSystemSpyCoder
 
         Category categorie = new Category();
 
-        string connectionString = @"Server =DESKTOP-O4TBSCE\SQLEXPRESS; Database = StockManagementSystem; Integrated Security = true ";
+        string connectionString = @"Server =DESKTOP-IQOQ25D\SQLEXPRESS; Database = StockManagementSystem; Integrated Security = true ";
 
         private SqlConnection sqlConnection;
 
         public CategorySetupUi()
         {
             InitializeComponent();
+            GetValue();
+            
         }
 
         private void categorySetupSaveButton_Click(object sender, EventArgs e)
@@ -41,25 +43,30 @@ namespace StockManagementSystemSpyCoder
                 MessageBox.Show("Not Saved");
             }
 
-            DataTable dataTable = Show();
-            categoriesGridView.DataSource = dataTable;
+            GetValue();
         }
-        private DataTable Show()
+
+        private void GetValue()
+        {
+            DataTable dataTable = GetData();
+            categoriesGridView.DataSource = dataTable;
+            foreach (DataGridViewRow row in categoriesGridView.Rows)
+            {
+                row.Cells["SL"].Value = (row.Index + 1).ToString();
+            }
+        }
+
+        private DataTable GetData()
         {
             DataTable dataTable = new DataTable();
             try
             {
                 sqlConnection = new SqlConnection(connectionString);
 
-                //4
-                // string query = @"SELECT * FROM Categories";
                 string query = @"SELECT Name FROM Categories";
-                //5
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-
-
                 sqlDataAdapter.Fill(dataTable);
 
             }

@@ -16,15 +16,14 @@ namespace StockManagementSystemSpyCoder
     {
         Company companie = new Company();
 
-        string connectionString = @"Server =DESKTOP-O4TBSCE\SQLEXPRESS; Database = StockManagementSystem; Integrated Security = true ";
-
-       // string connectionString = @"Server =DESKTOP-IQOQ25D\SQLEXPRESS; Database = StockManagementSystem; Integrated Security = true ";
+        string connectionString = @"Server =DESKTOP-IQOQ25D\SQLEXPRESS; Database = StockManagementSystem; Integrated Security = true ";
 
         private SqlConnection sqlConnection;
 
         public CompanySetupUi()
         {
             InitializeComponent();
+            ShowData();
         }
 
         private void CompanySetupSaveButton_Click(object sender, EventArgs e)
@@ -42,32 +41,32 @@ namespace StockManagementSystemSpyCoder
                 MessageBox.Show("Not Saved");
             }
 
-            DataTable dataTable = Show();
-            companyDataGridView.DataSource = dataTable;
+            ShowData();
         }
-        private DataTable Show()
+
+        private void ShowData()
+        {
+            DataTable dataTable = Getdata();
+            companyDataGridView.DataSource = dataTable;
+            foreach (DataGridViewRow row in companyDataGridView.Rows)
+            {
+                row.Cells["SL"].Value = (row.Index + 1).ToString();
+            }
+        }
+
+        private DataTable Getdata()
         {
             DataTable dataTable = new DataTable();
             try
             {
                 sqlConnection = new SqlConnection(connectionString);
-
-                //4
-                // string query = @"SELECT * FROM Companies";
                 string query = @"SELECT Name FROM Companies";
-
-                //5
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-
-
                 sqlDataAdapter.Fill(dataTable);
-
             }
             catch (Exception exception)
             {
-
                 MessageBox.Show(exception.Message);
             }
             return dataTable;
@@ -76,19 +75,12 @@ namespace StockManagementSystemSpyCoder
         private bool Add(Company companie)
         {
             bool isSucces = false;
-
             try
             {
-
                 sqlConnection = new SqlConnection(connectionString);
-
                 string query = @"INSERT INTO Companies (Name) VALUES ('" + companie.Name + "')";
-
-                //5
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                //6
                 sqlConnection.Open();
-                //7
                 int isExecuted = sqlCommand.ExecuteNonQuery();
                 if (isExecuted > 0)
                 {
@@ -98,8 +90,6 @@ namespace StockManagementSystemSpyCoder
                 {
                     isSucces = false;
                 }
-
-                //8
                 sqlConnection.Close();
             }
             catch (Exception exception)

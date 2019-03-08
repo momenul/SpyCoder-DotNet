@@ -71,6 +71,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\Stockout.cs" />
     <Compile Include="Models\StocksIn.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

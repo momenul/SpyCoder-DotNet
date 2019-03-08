@@ -110,11 +110,15 @@
             // 
             // searchAndViewDataGridView
             // 
+            this.searchAndViewDataGridView.AllowUserToAddRows = false;
+            this.searchAndViewDataGridView.AllowUserToDeleteRows = false;
+            this.searchAndViewDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.searchAndViewDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.searchAndViewDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SL});
             this.searchAndViewDataGridView.Location = new System.Drawing.Point(49, 229);
             this.searchAndViewDataGridView.Name = "searchAndViewDataGridView";
+            this.searchAndViewDataGridView.ReadOnly = true;
             this.searchAndViewDataGridView.Size = new System.Drawing.Size(602, 190);
             this.searchAndViewDataGridView.TabIndex = 62;
             // 

@@ -17,7 +17,7 @@ namespace StockManagementSystemSpyCoder
         Item item = new Item();
         private Company company = new Company();
         Category category = new Category();
-        string connectionString = @"Server =DESKTOP-O4TBSCE\SQLEXPRESS; Database =StockManagementSystem; Integrated Security = true ";
+        string connectionString = @"Server =DESKTOP-IQOQ25D\SQLEXPRESS; Database =StockManagementSystem; Integrated Security = true ";
         private SqlConnection sqlConnection;
 
         public SearchAndView()
@@ -51,8 +51,8 @@ namespace StockManagementSystemSpyCoder
                 {
 
                     sqlConnection = new SqlConnection(connectionString);
-                   // string query = @"SELECT * FROM ViewItems WHERE Company = '" + companySearch + "' and Category='" + categorySearch + "'";
-                    string query = @"SELECT * FROM ViewsSearch WHERE Companie = '" + companySearch + "' and Categorie='" + categorySearch + "'";
+                    string query = @"SELECT * FROM ViewItems WHERE Company = '" + companySearch + "' and Category='" + categorySearch + "'";
+                    //string query = @"SELECT * FROM ViewsSearch WHERE Companie = '" + companySearch + "' and Categorie='" + categorySearch + "'";
 
                     SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 

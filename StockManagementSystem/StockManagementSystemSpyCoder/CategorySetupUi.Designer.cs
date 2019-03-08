@@ -32,12 +32,17 @@
             this.categorySetupNameTextBox = new System.Windows.Forms.TextBox();
             this.categorySetupSaveButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // categoriesGridView
             // 
+            this.categoriesGridView.AllowUserToAddRows = false;
+            this.categoriesGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.categoriesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.categoriesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SL});
             this.categoriesGridView.Location = new System.Drawing.Point(228, 203);
             this.categoriesGridView.Name = "categoriesGridView";
             this.categoriesGridView.Size = new System.Drawing.Size(258, 158);
@@ -75,6 +80,12 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "Name";
             // 
+            // SL
+            // 
+            this.SL.HeaderText = "SL";
+            this.SL.Name = "SL";
+            this.SL.Width = 50;
+            // 
             // CategorySetupUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -97,5 +108,6 @@
         private System.Windows.Forms.TextBox categorySetupNameTextBox;
         private System.Windows.Forms.Button categorySetupSaveButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
     }
 }

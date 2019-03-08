@@ -59,10 +59,6 @@
             this.companyComboBox.ValueMember = "Id";
             this.companyComboBox.SelectedIndexChanged += new System.EventHandler(this.companyComboBox_SelectedIndexChanged);
             // 
-            // itemBindingSource
-            // 
-           
-            // 
             // companieBindingSource
             // 
             this.companieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Company);
@@ -90,6 +86,7 @@
             // 
             this.reorderLevelTextBox.Location = new System.Drawing.Point(276, 154);
             this.reorderLevelTextBox.Name = "reorderLevelTextBox";
+            this.reorderLevelTextBox.ReadOnly = true;
             this.reorderLevelTextBox.Size = new System.Drawing.Size(186, 20);
             this.reorderLevelTextBox.TabIndex = 25;
             // 
@@ -160,6 +157,7 @@
             // 
             this.avalibleQuantityTextBox.Location = new System.Drawing.Point(276, 195);
             this.avalibleQuantityTextBox.Name = "avalibleQuantityTextBox";
+            this.avalibleQuantityTextBox.ReadOnly = true;
             this.avalibleQuantityTextBox.Size = new System.Drawing.Size(186, 20);
             this.avalibleQuantityTextBox.TabIndex = 24;
             // 

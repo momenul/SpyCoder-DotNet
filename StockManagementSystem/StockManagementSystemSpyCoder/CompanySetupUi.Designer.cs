@@ -32,12 +32,17 @@
             this.companySetupNameTextBox = new System.Windows.Forms.TextBox();
             this.CompanySetupSaveButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.companyDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // companyDataGridView
             // 
+            this.companyDataGridView.AllowUserToAddRows = false;
+            this.companyDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.companyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.companyDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SL});
             this.companyDataGridView.Location = new System.Drawing.Point(232, 193);
             this.companyDataGridView.Name = "companyDataGridView";
             this.companyDataGridView.Size = new System.Drawing.Size(258, 154);
@@ -73,6 +78,12 @@
             this.label1.TabIndex = 29;
             this.label1.Text = "Name";
             // 
+            // SL
+            // 
+            this.SL.HeaderText = "SL";
+            this.SL.Name = "SL";
+            this.SL.Width = 50;
+            // 
             // CompanySetupUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -95,5 +106,6 @@
         private System.Windows.Forms.TextBox companySetupNameTextBox;
         private System.Windows.Forms.Button CompanySetupSaveButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
     }
 }

@@ -56,13 +56,13 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.searchAndViewPanal = new StockManagementSystemSpyCoder.SearchAndView();
+            this.stockInPanal = new StockManagementSystemSpyCoder.StockIn();
+            this.itemSetupPanal = new StockManagementSystemSpyCoder.ItemSetup();
             this.companySetupNewPanel = new StockManagementSystemSpyCoder.CompanySetupUi();
             this.categorySetupPanel = new StockManagementSystemSpyCoder.CategorySetupUi();
             this.salesBetweenTwoDataPanal = new StockManagementSystemSpyCoder.SalesBetweenTwoData();
             this.stockOutPanal = new StockManagementSystemSpyCoder.StockOut();
-            this.itemSetupPanal = new StockManagementSystemSpyCoder.ItemSetup();
-            this.stockInPanal = new StockManagementSystemSpyCoder.StockIn();
-            this.searchAndViewPanal = new StockManagementSystemSpyCoder.SearchAndView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -418,6 +418,27 @@
             this.panel4.Size = new System.Drawing.Size(893, 17);
             this.panel4.TabIndex = 3;
             // 
+            // searchAndViewPanal
+            // 
+            this.searchAndViewPanal.Location = new System.Drawing.Point(192, 114);
+            this.searchAndViewPanal.Name = "searchAndViewPanal";
+            this.searchAndViewPanal.Size = new System.Drawing.Size(698, 448);
+            this.searchAndViewPanal.TabIndex = 10;
+            // 
+            // stockInPanal
+            // 
+            this.stockInPanal.Location = new System.Drawing.Point(192, 114);
+            this.stockInPanal.Name = "stockInPanal";
+            this.stockInPanal.Size = new System.Drawing.Size(698, 448);
+            this.stockInPanal.TabIndex = 9;
+            // 
+            // itemSetupPanal
+            // 
+            this.itemSetupPanal.Location = new System.Drawing.Point(192, 114);
+            this.itemSetupPanal.Name = "itemSetupPanal";
+            this.itemSetupPanal.Size = new System.Drawing.Size(701, 448);
+            this.itemSetupPanal.TabIndex = 8;
+            // 
             // companySetupNewPanel
             // 
             this.companySetupNewPanel.Location = new System.Drawing.Point(192, 114);
@@ -445,27 +466,6 @@
             this.stockOutPanal.Name = "stockOutPanal";
             this.stockOutPanal.Size = new System.Drawing.Size(658, 441);
             this.stockOutPanal.TabIndex = 4;
-            // 
-            // itemSetupPanal
-            // 
-            this.itemSetupPanal.Location = new System.Drawing.Point(192, 114);
-            this.itemSetupPanal.Name = "itemSetupPanal";
-            this.itemSetupPanal.Size = new System.Drawing.Size(701, 448);
-            this.itemSetupPanal.TabIndex = 8;
-            // 
-            // stockInPanal
-            // 
-            this.stockInPanal.Location = new System.Drawing.Point(192, 114);
-            this.stockInPanal.Name = "stockInPanal";
-            this.stockInPanal.Size = new System.Drawing.Size(698, 448);
-            this.stockInPanal.TabIndex = 9;
-            // 
-            // searchAndViewPanal
-            // 
-            this.searchAndViewPanal.Location = new System.Drawing.Point(192, 114);
-            this.searchAndViewPanal.Name = "searchAndViewPanal";
-            this.searchAndViewPanal.Size = new System.Drawing.Size(698, 448);
-            this.searchAndViewPanal.TabIndex = 10;
             // 
             // HomeUi
             // 

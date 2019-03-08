@@ -121,10 +121,10 @@
             this.categoryComboBox.Size = new System.Drawing.Size(186, 21);
             this.categoryComboBox.TabIndex = 13;
             this.categoryComboBox.ValueMember = "Id";
-            // 
+
             // categorieBindingSource
             // 
-            
+            this.categorieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Category);
             // 
             // companyComboBox
             // 
@@ -137,12 +137,6 @@
             this.companyComboBox.TabIndex = 14;
             this.companyComboBox.ValueMember = "Id";
             // 
-
-            // categorieBindingSource
-            // 
-            this.categorieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Category);
-            // 
-
             // companieBindingSource
             // 
             this.companieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Company);
