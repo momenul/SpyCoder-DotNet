@@ -15,10 +15,9 @@ namespace StockManagementSystemSpyCoder
     public partial class CompanySetupUi : UserControl
     {
         Company companie = new Company();
+        SqlConnection sqlConnection;
 
-        string connectionString = @"Server =DESKTOP-IQOQ25D\SQLEXPRESS; Database = StockManagementSystem; Integrated Security = true ";
-
-        private SqlConnection sqlConnection;
+        Connection connection = new Connection();
 
         public CompanySetupUi()
         {
@@ -59,7 +58,7 @@ namespace StockManagementSystemSpyCoder
             DataTable dataTable = new DataTable();
             try
             {
-                sqlConnection = new SqlConnection(connectionString);
+                sqlConnection= new SqlConnection(connection.connectionString);
                 string query = @"SELECT Name FROM Companies";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
@@ -77,7 +76,7 @@ namespace StockManagementSystemSpyCoder
             bool isSucces = false;
             try
             {
-                sqlConnection = new SqlConnection(connectionString);
+                sqlConnection= new SqlConnection(connection.connectionString);
                 string query = @"INSERT INTO Companies (Name) VALUES ('" + companie.Name + "')";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlConnection.Open();

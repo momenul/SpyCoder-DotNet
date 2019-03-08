@@ -17,8 +17,7 @@ namespace StockManagementSystemSpyCoder
 
         Category categorie = new Category();
 
-        string connectionString = @"Server =DESKTOP-IQOQ25D\SQLEXPRESS; Database = StockManagementSystem; Integrated Security = true ";
-
+        Connection connection = new Connection();
         private SqlConnection sqlConnection;
 
         public CategorySetupUi()
@@ -61,8 +60,7 @@ namespace StockManagementSystemSpyCoder
             DataTable dataTable = new DataTable();
             try
             {
-                sqlConnection = new SqlConnection(connectionString);
-
+                sqlConnection= new SqlConnection(connection.connectionString);
                 string query = @"SELECT Name FROM Categories";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
@@ -84,9 +82,7 @@ namespace StockManagementSystemSpyCoder
 
             try
             {
-
-                sqlConnection = new SqlConnection(connectionString);
-
+                sqlConnection= new SqlConnection(connection.connectionString);
                 // SqlConnection sqlConnection = new SqlConnection(connectionString);
                 string query = @"INSERT INTO Categories (Name) VALUES ('" + categorie.Name + "')";
 
@@ -107,7 +103,6 @@ namespace StockManagementSystemSpyCoder
                     isSucces = false;
                 }
 
-                //8
                 sqlConnection.Close();
 
 

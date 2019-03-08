@@ -15,7 +15,7 @@ namespace StockManagementSystemSpyCoder
     public partial class ItemSetup : UserControl
     {
         Item item = new Item();
-        string connectionString = @"Server =DESKTOP-IQOQ25D\SQLEXPRESS; Database =StockManagementSystem; Integrated Security = true ";
+        Connection connection = new Connection();
         private SqlConnection sqlConnection;
 
         public ItemSetup()
@@ -60,11 +60,7 @@ namespace StockManagementSystemSpyCoder
 
             try
             {
-
-                //3
-                sqlConnection = new SqlConnection(connectionString);
-                //4
-
+                sqlConnection= new SqlConnection(connection.connectionString);
                 string query = @"INSERT INTO Items (Name, CategoryId, CompanyId, ReorderLevel) VALUES ('" + item.Name + "'," + item.CategoryId + "," + item.CompanyId + "," + item.ReorderLevel + ")";
                 //5
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
@@ -96,10 +92,7 @@ namespace StockManagementSystemSpyCoder
 
         private DataTable Getcategorycombo()
         {
-            //3
-            sqlConnection = new SqlConnection(connectionString);
-
-            //4
+            sqlConnection= new SqlConnection(connection.connectionString);
             string query = @"SELECT Id, Name FROM Categories";
 
             //5
@@ -113,8 +106,6 @@ namespace StockManagementSystemSpyCoder
             DataTable dataTable = new DataTable();
             sqlDataAdaapter.Fill(dataTable);
 
-
-            //8
             sqlConnection.Close();
 
             return dataTable;
@@ -122,10 +113,7 @@ namespace StockManagementSystemSpyCoder
 
         private DataTable Getcompanycombox()
         {
-            //3
-            sqlConnection = new SqlConnection(connectionString);
-
-            //4
+            sqlConnection= new SqlConnection(connection.connectionString);
             string query = @"SELECT Id, Name FROM Companies";
 
             //5
@@ -139,8 +127,6 @@ namespace StockManagementSystemSpyCoder
             DataTable dataTable = new DataTable();
             sqlDataAdaapter.Fill(dataTable);
 
-
-            //8
             sqlConnection.Close();
 
             return dataTable;

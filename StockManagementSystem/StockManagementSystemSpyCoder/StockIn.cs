@@ -15,8 +15,8 @@ namespace StockManagementSystemSpyCoder
 {
     public partial class StockIn : UserControl
     {
-        private string connectionString = @"Server =DESKTOP-IQOQ25D\SQLEXPRESS; Database =StockManagementSystem; Integrated Security = true ";
-        private SqlConnection sqlConnection;
+        Connection connection= new Connection();
+        SqlConnection sqlConnection= new SqlConnection();
 
         private Item item = new Item();
         private StocksIn stocksIn = new StocksIn();
@@ -35,7 +35,7 @@ namespace StockManagementSystemSpyCoder
         }
         private void GetItemData(Item item)
         {
-            sqlConnection = new SqlConnection(connectionString);
+            sqlConnection = new SqlConnection(connection.connectionString);
 
             string query = @"select * from Items where Id=" + item.Id + "";
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
@@ -108,7 +108,7 @@ namespace StockManagementSystemSpyCoder
         private bool IsertStockInData(StocksIn stocksIn)
         {
             bool isSuccess = false;
-            sqlConnection = new SqlConnection(connectionString);
+            sqlConnection = new SqlConnection(connection.connectionString);
 
             int updateQuantity = (Convert.ToInt32(avalibleQuantityTextBox.Text)) + stocksIn.Quantity;
 
@@ -135,7 +135,7 @@ namespace StockManagementSystemSpyCoder
         }
         private DataTable GetCompanyCombo()
         {
-            sqlConnection = new SqlConnection(connectionString);
+            sqlConnection = new SqlConnection(connection.connectionString);
             string query = @"SELECT Id, Name FROM Companies";
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
             sqlConnection.Open();
@@ -150,7 +150,7 @@ namespace StockManagementSystemSpyCoder
         }
         private DataTable GetItemsCombo(Item item)
         {
-            sqlConnection = new SqlConnection(connectionString);
+            sqlConnection = new SqlConnection(connection.connectionString);
 
             string query = @"SELECT Id, Name FROM Items WHERE CompanyId=" + item.CompanyId + "";
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);

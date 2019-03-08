@@ -14,10 +14,9 @@ namespace StockManagementSystemSpyCoder
 {
     public partial class StockOut : UserControl
     {
-        private string connectionString =
-            @"Server=DESKTOP-IQOQ25D\SQLEXPRESS; Database=StockManagementSystem; Integrated Security = true ";
+        Connection connection= new Connection();
 
-        private SqlConnection sqlConnection = new SqlConnection();
+        SqlConnection sqlConnection = new SqlConnection();
 
         private Item item = new Item();
         private Company company = new Company();
@@ -41,7 +40,7 @@ namespace StockManagementSystemSpyCoder
 
         private DataTable GetCompanyData()
         {
-            sqlConnection = new SqlConnection(connectionString);
+            sqlConnection = new SqlConnection(connection.connectionString);
 
             string query = @"select Id, Name from Companies";
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
@@ -56,7 +55,7 @@ namespace StockManagementSystemSpyCoder
 
         private DataTable GetItemComboData(Item item)
         {
-            sqlConnection = new SqlConnection(connectionString);
+            sqlConnection = new SqlConnection(connection.connectionString);
 
             string query = @"select Id, Name from Items where CompanyId=" + item.CompanyId + "";
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
@@ -71,7 +70,7 @@ namespace StockManagementSystemSpyCoder
 
         private void GetItemData(Item item)
         {
-            sqlConnection = new SqlConnection(connectionString);
+            sqlConnection = new SqlConnection(connection.connectionString);
 
             string query = @"select * from Items where Id=" + item.Id + "";
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
@@ -175,7 +174,7 @@ namespace StockManagementSystemSpyCoder
         private bool IsertStockOutData(Stockout stockout)
         {
             bool isSuccess = false;
-            sqlConnection = new SqlConnection(connectionString);
+            sqlConnection = new SqlConnection(connection.connectionString);
 
             for (int i = 0; i < stockOutDataGridView.Rows.Count; i++)
             {
