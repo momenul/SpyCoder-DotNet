@@ -64,14 +64,17 @@ namespace StockManagementSystemSpyCoder
 
                     searchAndViewDataGridView.DataSource = dataTable;
 
-                    int cellNum = 0;
-                    int rowNum = 0;
                     foreach (DataGridViewRow row in searchAndViewDataGridView.Rows)
-                    {
-                        cellNum = cellNum + 1;
-                        searchAndViewDataGridView.Rows[rowNum].Cells[0].Value = cellNum;
-                        rowNum = rowNum + 1;
-                    }
+                        row.Cells["SL"].Value = (row.Index + 1).ToString();
+
+                    /*  int cellNum = 0;
+                     int rowNum = 0;
+                    foreach (DataGridViewRow row in searchAndViewDataGridView.Rows)
+                     {
+                         cellNum = cellNum + 1;
+                         searchAndViewDataGridView.Rows[rowNum].Cells[0].Value = cellNum;
+                         rowNum = rowNum + 1;
+                     } */
 
                     sqlConnection.Close();
                 }              

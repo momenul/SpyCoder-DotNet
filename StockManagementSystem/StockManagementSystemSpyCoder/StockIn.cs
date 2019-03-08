@@ -84,7 +84,7 @@ namespace StockManagementSystemSpyCoder
              bool isReorder = CheckReorder();
              if (isReorder)
              {
-                 MessageBox.Show("Please reorder this item.");
+                // MessageBox.Show("Please reorder this item.");
              }
              if (isValid)
              {
@@ -111,7 +111,7 @@ namespace StockManagementSystemSpyCoder
             bool isSave = IsertStockInData(stocksIn);
             if (isSave)
             {
-                MessageBox.Show("Successful Stock In");
+               // MessageBox.Show("Successful Stock In");
             }
             else
             {

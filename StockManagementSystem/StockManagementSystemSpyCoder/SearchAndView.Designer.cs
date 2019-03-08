@@ -37,7 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.SearchAndViewButton = new System.Windows.Forms.Button();
             this.searchAndViewDataGridView = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.companieBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchAndViewDataGridView)).BeginInit();
@@ -112,18 +112,17 @@
             // 
             this.searchAndViewDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.searchAndViewDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID});
-            this.searchAndViewDataGridView.Location = new System.Drawing.Point(39, 229);
+            this.SL});
+            this.searchAndViewDataGridView.Location = new System.Drawing.Point(49, 229);
             this.searchAndViewDataGridView.Name = "searchAndViewDataGridView";
-            this.searchAndViewDataGridView.Size = new System.Drawing.Size(612, 190);
+            this.searchAndViewDataGridView.Size = new System.Drawing.Size(602, 190);
             this.searchAndViewDataGridView.TabIndex = 62;
             // 
-            // ID
+            // SL
             // 
-            this.ID.FillWeight = 50F;
-            this.ID.HeaderText = "No.";
-            this.ID.Name = "ID";
-            this.ID.Width = 50;
+            this.SL.HeaderText = "SL.No";
+            this.SL.Name = "SL";
+            this.SL.Width = 40;
             // 
             // SearchAndView
             // 
@@ -155,6 +154,6 @@
         private System.Windows.Forms.BindingSource companieBindingSource;
         private System.Windows.Forms.BindingSource categorieBindingSource;
         private System.Windows.Forms.DataGridView searchAndViewDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
     }
 }
