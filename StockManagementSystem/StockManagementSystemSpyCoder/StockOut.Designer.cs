@@ -80,6 +80,7 @@
             this.stockOutDataGridView.ReadOnly = true;
             this.stockOutDataGridView.Size = new System.Drawing.Size(523, 190);
             this.stockOutDataGridView.TabIndex = 63;
+            this.stockOutDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.stockOutDataGridView_CellDoubleClick);
             // 
             // StockOutLostButton
             // 

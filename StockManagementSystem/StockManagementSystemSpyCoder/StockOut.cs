@@ -153,8 +153,22 @@ namespace StockManagementSystemSpyCoder
                 stockout.ItemId = item.Id;
                 int availabelQuantity = Convert.ToInt32(avalibleQuantityTextBox.Text);
 
-                stockOutDataGridView.Rows.Add(sl, item.Name, company.Name, stockout.Quantity, item.Id, availabelQuantity);
+                for (int i = 0; i < stockOutDataGridView.Rows.Count; i++)
+                {
+                    if (stockout.ItemId == Convert.ToInt32(stockOutDataGridView.Rows[i].Cells[4].Value))
+                    {
+                        MessageBox.Show("Already add this item..");
+                        return;
+                    }
+                    
+                }
+
+                stockOutDataGridView.Rows.Add("",item.Name, company.Name, stockout.Quantity, item.Id, availabelQuantity);
                 sl++;
+
+                foreach (DataGridViewRow row in stockOutDataGridView.Rows)
+                    row.Cells[0].Value = (row.Index + 1).ToString();
+
                 avalibleQuantityTextBox.Text = (Convert.ToInt32(avalibleQuantityTextBox.Text) -
                                                Convert.ToInt32(stockOutQuantityTextBox.Text)).ToString();
                 bool isReorder = CheckReorder();
@@ -277,6 +291,12 @@ namespace StockManagementSystemSpyCoder
                 MessageBox.Show(exception.Message);
             }
         }
+
+        private void stockOutDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = stockOutDataGridView.CurrentCell.RowIndex;
+            stockOutDataGridView.Rows.RemoveAt(rowIndex);
+        }    
 
 
     }
