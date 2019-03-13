@@ -15,9 +15,7 @@ namespace StockManagementSystemSpyCoder
     public partial class StockOut : UserControl
     {
         Connection connection= new Connection();
-
         SqlConnection sqlConnection = new SqlConnection();
-
         private Item item = new Item();
         private Company company = new Company();
         private Stockout stockout = new Stockout();
@@ -56,11 +54,9 @@ namespace StockManagementSystemSpyCoder
         private DataTable GetItemComboData(Item item)
         {
             sqlConnection = new SqlConnection(connection.connectionString);
-
             string query = @"select Id, Name from Items where CompanyId=" + item.CompanyId + "";
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
             sqlConnection.Open();
-
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
             DataTable dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
@@ -71,11 +67,9 @@ namespace StockManagementSystemSpyCoder
         private void GetItemData(Item item)
         {
             sqlConnection = new SqlConnection(connection.connectionString);
-
             string query = @"select * from Items where Id=" + item.Id + "";
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
             sqlConnection.Open();
-
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
             if (sqlDataReader.Read())
             {
@@ -84,12 +78,18 @@ namespace StockManagementSystemSpyCoder
                 item.Quantity = Convert.ToInt32(sqlDataReader["Quantity"]);
             }
             sqlConnection.Close();
-
         }
         private void companyComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            item.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
-            itemComboBox.DataSource = GetItemComboData(item);
+            try
+            {
+                item.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
+                itemComboBox.DataSource = GetItemComboData(item);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
 
         private void itemComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -140,14 +140,12 @@ namespace StockManagementSystemSpyCoder
                 {
                     return;
                 }
-
                 else
                 {
                     errorLabel.Text = "";
                 }
                 item.Name = itemComboBox.Text;
                 company.Name = companyComboBox.Text;
-
                 stockout.Quantity = Convert.ToInt32(stockOutQuantityTextBox.Text);
                 stockout.ItemId = item.Id;
                 int availabelQuantity = Convert.ToInt32(avalibleQuantityTextBox.Text);
@@ -160,9 +158,7 @@ namespace StockManagementSystemSpyCoder
                         return;
                     }                   
                 }
-
                 stockOutDataGridView.Rows.Add("",item.Name, company.Name, stockout.Quantity, item.Id, availabelQuantity);
-
                 foreach (DataGridViewRow row in stockOutDataGridView.Rows)
                 {
                     row.Cells[0].Value = (row.Index + 1).ToString();
@@ -175,7 +171,6 @@ namespace StockManagementSystemSpyCoder
                     MessageBox.Show("Please reorder this item.");
                 }
                 stockOutQuantityTextBox.Text = "";
-
             }
             catch (Exception exception)
             {
@@ -187,13 +182,11 @@ namespace StockManagementSystemSpyCoder
         {
             bool isSuccess = false;
             sqlConnection = new SqlConnection(connection.connectionString);
-
             for (int i = 0; i < stockOutDataGridView.Rows.Count; i++)
             {
                 stockout.ItemId = Convert.ToInt32(stockOutDataGridView.Rows[i].Cells[4].Value);
                 stockout.Quantity = Convert.ToInt32(stockOutDataGridView.Rows[i].Cells[3].Value);
                 int updateQuantity = (Convert.ToInt32(stockOutDataGridView.Rows[i].Cells[5].Value)) - stockout.Quantity;
-
                 string query = @"insert into StockOut (ItemId, Quantity, Type) values (" + stockout.ItemId + ", " + stockout.Quantity + ", '" + stockout.Type + "')";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
@@ -214,13 +207,10 @@ namespace StockManagementSystemSpyCoder
             }
             return isSuccess;
         }
-
-
         private void DataGridViewClear()
         {
             stockOutDataGridView.Rows.Clear();
         }
-
         private void StockOutSellButton_Click(object sender, EventArgs e)
         {
             try
@@ -242,7 +232,6 @@ namespace StockManagementSystemSpyCoder
                 MessageBox.Show(exception.Message);
             }
         }
-
         private void StockOutDamageButton_Click(object sender, EventArgs e)
         {
             try
@@ -289,9 +278,20 @@ namespace StockManagementSystemSpyCoder
 
         private void stockOutDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int rowIndex = stockOutDataGridView.CurrentCell.RowIndex;
-            stockOutDataGridView.Rows.RemoveAt(rowIndex);
-            avalibleQuantityTextBox.Text = item.Quantity.ToString();
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    int rowIndex = stockOutDataGridView.CurrentCell.RowIndex;
+                    stockOutDataGridView.Rows.RemoveAt(rowIndex);
+                    avalibleQuantityTextBox.Text = item.Quantity.ToString();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            
         }    
     }
 }

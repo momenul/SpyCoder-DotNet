@@ -17,11 +17,9 @@ namespace StockManagementSystemSpyCoder
         Item item = new Item();
         Connection connection = new Connection();
         private SqlConnection sqlConnection;
-
         public ItemSetup()
         {
             InitializeComponent();
-
             try
             {
                 categoryComboBox.DataSource = Getcategorycombo();
@@ -33,81 +31,91 @@ namespace StockManagementSystemSpyCoder
             }
         }
 
-        private void ItemSetupSaveButton_Click(object sender, EventArgs e)
+        public bool isValitation()
         {
-            item.Name = itemNameTextBox.Text;
-            item.CategoryId = Convert.ToInt32(categoryComboBox.SelectedValue);
-            item.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
-            item.ReorderLevel = Convert.ToInt32(reorderLevelTextBox.Text);
-
-            bool isExecute = save(item);
-            if (isExecute)
+            bool isError = false;
+            if (string.IsNullOrEmpty(itemNameTextBox.Text))
             {
-                MessageBox.Show("Saved");
+                errorItemLabel.Text = "Please enter the item name.";
+                isError = true;
             }
-            else
+            if (reorderLevelTextBox.Text == "")
             {
-                MessageBox.Show("Not saved");
+                errorReorderLabel.Text = "Please enter the value.";
+                isError = true;
             }
+            return isError;
+        }
 
+        public void Clear()
+        {
+            errorItemLabel.Text = "";
+            errorReorderLabel.Text = "";
             itemNameTextBox.Text = "";
             reorderLevelTextBox.Text = "";
+        }
+        private void ItemSetupSaveButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool isTrue = isValitation();
+                if (isTrue)
+                {
+                    return;
+                }
+                item.Name = itemNameTextBox.Text;
+                item.CategoryId = Convert.ToInt32(categoryComboBox.SelectedValue);
+                item.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
+                item.ReorderLevel = Convert.ToInt32(reorderLevelTextBox.Text);
+
+                bool isExecute = save(item);
+                if (isExecute)
+                {
+                    MessageBox.Show("Saved");
+                    Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Not saved");
+                } 
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }          
         }
 
         private bool save(Item item)
         {
             bool issaved = false;
-
-            try
+            sqlConnection= new SqlConnection(connection.connectionString);
+            string query = @"INSERT INTO Items (Name, CategoryId, CompanyId, ReorderLevel) VALUES ('" + item.Name + "'," + item.CategoryId + "," + item.CompanyId + "," + item.ReorderLevel + ")";
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+            sqlConnection.Open();
+            int isExecuted = sqlCommand.ExecuteNonQuery();
+            if (isExecuted > 0)
             {
-                sqlConnection= new SqlConnection(connection.connectionString);
-                string query = @"INSERT INTO Items (Name, CategoryId, CompanyId, ReorderLevel) VALUES ('" + item.Name + "'," + item.CategoryId + "," + item.CompanyId + "," + item.ReorderLevel + ")";
-                //5
-                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                //6
-                sqlConnection.Open();
-                //7
-                int isExecuted = sqlCommand.ExecuteNonQuery();
-                if (isExecuted > 0)
-                {
-                    issaved = true;
-                }
-                else
-                {
-                    issaved = false;
-                }
-                //8
-                sqlConnection.Close();
-
+                issaved = true;
             }
-            catch (Exception exception)
+            else
             {
-                MessageBox.Show(exception.Message);
+                issaved = false;
             }
-
-
+            sqlConnection.Close();
+            
             return issaved;
-
         }
 
         private DataTable Getcategorycombo()
         {
             sqlConnection= new SqlConnection(connection.connectionString);
             string query = @"SELECT Id, Name FROM Categories";
-
-            //5
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-
-            //6
             sqlConnection.Open();
-
-
             SqlDataAdapter sqlDataAdaapter = new SqlDataAdapter(sqlCommand);
             DataTable dataTable = new DataTable();
             sqlDataAdaapter.Fill(dataTable);
-
             sqlConnection.Close();
-
             return dataTable;
         }
 
@@ -115,20 +123,12 @@ namespace StockManagementSystemSpyCoder
         {
             sqlConnection= new SqlConnection(connection.connectionString);
             string query = @"SELECT Id, Name FROM Companies";
-
-            //5
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-
-            //6
             sqlConnection.Open();
-
-
             SqlDataAdapter sqlDataAdaapter = new SqlDataAdapter(sqlCommand);
             DataTable dataTable = new DataTable();
             sqlDataAdaapter.Fill(dataTable);
-
             sqlConnection.Close();
-
             return dataTable;
         }
 

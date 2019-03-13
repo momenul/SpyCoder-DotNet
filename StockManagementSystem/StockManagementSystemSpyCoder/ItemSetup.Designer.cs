@@ -35,8 +35,10 @@
             this.itemNameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.companyComboBox = new System.Windows.Forms.ComboBox();
+            this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.errorItemLabel = new System.Windows.Forms.Label();
+            this.errorReorderLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // reorderLevelTextBox
@@ -107,32 +109,55 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Category";
             // 
-            // categoryComboBox
-            // 
-            this.categoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(293, 79);
-            this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(186, 21);
-            this.categoryComboBox.TabIndex = 13;
-            this.categoryComboBox.ValueMember = "Id";
-            // 
             // companyComboBox
             // 
+            this.companyComboBox.DisplayMember = "Name";
             this.companyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.companyComboBox.FormattingEnabled = true;
-            this.companyComboBox.Location = new System.Drawing.Point(293, 123);
+            this.companyComboBox.Location = new System.Drawing.Point(293, 124);
             this.companyComboBox.Name = "companyComboBox";
             this.companyComboBox.Size = new System.Drawing.Size(186, 21);
-            this.companyComboBox.TabIndex = 14;
+            this.companyComboBox.TabIndex = 60;
             this.companyComboBox.ValueMember = "Id";
+            // 
+            // categoryComboBox
+            // 
+            this.categoryComboBox.AllowDrop = true;
+            this.categoryComboBox.DisplayMember = "Name";
+            this.categoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.categoryComboBox.FormattingEnabled = true;
+            this.categoryComboBox.Location = new System.Drawing.Point(293, 77);
+            this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.Size = new System.Drawing.Size(186, 21);
+            this.categoryComboBox.TabIndex = 61;
+            this.categoryComboBox.ValueMember = "Id";
+            // 
+            // errorItemLabel
+            // 
+            this.errorItemLabel.AutoSize = true;
+            this.errorItemLabel.ForeColor = System.Drawing.Color.Red;
+            this.errorItemLabel.Location = new System.Drawing.Point(290, 189);
+            this.errorItemLabel.Name = "errorItemLabel";
+            this.errorItemLabel.Size = new System.Drawing.Size(0, 13);
+            this.errorItemLabel.TabIndex = 62;
+            // 
+            // errorReorderLabel
+            // 
+            this.errorReorderLabel.AutoSize = true;
+            this.errorReorderLabel.ForeColor = System.Drawing.Color.Red;
+            this.errorReorderLabel.Location = new System.Drawing.Point(290, 240);
+            this.errorReorderLabel.Name = "errorReorderLabel";
+            this.errorReorderLabel.Size = new System.Drawing.Size(0, 13);
+            this.errorReorderLabel.TabIndex = 62;
             // 
             // ItemSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.companyComboBox);
+            this.Controls.Add(this.errorReorderLabel);
+            this.Controls.Add(this.errorItemLabel);
             this.Controls.Add(this.categoryComboBox);
+            this.Controls.Add(this.companyComboBox);
             this.Controls.Add(this.itemNameTextBox);
             this.Controls.Add(this.reorderLevelTextBox);
             this.Controls.Add(this.label4);
@@ -156,8 +181,10 @@
         private System.Windows.Forms.TextBox itemNameTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.ComboBox companyComboBox;
+        private System.Windows.Forms.ComboBox categoryComboBox;
+        private System.Windows.Forms.Label errorItemLabel;
+        private System.Windows.Forms.Label errorReorderLabel;
 
     }
 }

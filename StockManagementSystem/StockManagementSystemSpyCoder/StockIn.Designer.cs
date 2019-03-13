@@ -28,10 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.companyComboBox = new System.Windows.Forms.ComboBox();
-            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.companieBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itemComboBox = new System.Windows.Forms.ComboBox();
             this.stockInQuantityTextBox = new System.Windows.Forms.TextBox();
             this.reorderLevelTextBox = new System.Windows.Forms.TextBox();
@@ -43,13 +40,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.avalibleQuantityTextBox = new System.Windows.Forms.TextBox();
             this.errorLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.companieBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // companyComboBox
             // 
-            this.companyComboBox.DataSource = this.itemBindingSource;
             this.companyComboBox.DisplayMember = "Name";
             this.companyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.companyComboBox.FormattingEnabled = true;
@@ -60,13 +54,8 @@
             this.companyComboBox.ValueMember = "Id";
             this.companyComboBox.SelectedIndexChanged += new System.EventHandler(this.companyComboBox_SelectedIndexChanged);
             // 
-            // companieBindingSource
-            // 
-            this.companieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Company);
-            // 
             // itemComboBox
             // 
-            this.itemComboBox.DataSource = this.itemBindingSource;
             this.itemComboBox.DisplayMember = "Name";
             this.itemComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.itemComboBox.FormattingEnabled = true;
@@ -192,8 +181,6 @@
             this.Controls.Add(this.label1);
             this.Name = "StockIn";
             this.Size = new System.Drawing.Size(629, 405);
-            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.companieBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,7 +200,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox avalibleQuantityTextBox;
         private System.Windows.Forms.Label errorLabel;
-        private System.Windows.Forms.BindingSource companieBindingSource;
-        private System.Windows.Forms.BindingSource itemBindingSource;
     }
 }
