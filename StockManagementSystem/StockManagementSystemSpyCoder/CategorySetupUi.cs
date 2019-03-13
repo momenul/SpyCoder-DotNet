@@ -14,42 +14,51 @@ namespace StockManagementSystemSpyCoder
 {
     public partial class CategorySetupUi : UserControl
     {
-
         Category category = new Category();
-
         Connection connection = new Connection();
         private SqlConnection sqlConnection;
 
         public CategorySetupUi()
         {
             InitializeComponent();
-            GridShowData();
-            
+            GridShowData();           
         }
 
         private void categorySetupSaveButton_Click(object sender, EventArgs e)
         {
-            category.Name = categorySetupNameTextBox.Text;
-
-            if (string.IsNullOrEmpty(categorySetupNameTextBox.Text))
+            try
             {
-                errorLabel.Text = "Please enter the value.";
-                return;
+                category.Name = categorySetupNameTextBox.Text;
+                bool isExits = Exists(category);
+                if (isExits)
+                {
+                    MessageBox.Show("This name already exits.");
+                    return;
+                }
+                if (string.IsNullOrEmpty(categorySetupNameTextBox.Text))
+                {
+                    errorLabel.Text = "Please enter the value.";
+                    return;
+                }
+
+                bool isSave = Add(category);
+
+                if (isSave)
+                {
+                    MessageBox.Show("Saved");
+                    Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Not Saved");
+                }
+
+                GridShowData();
             }
-
-            bool isSave = Add(category);
-
-            if (isSave)
+            catch (Exception exception)
             {
-                MessageBox.Show("Saved");
-                Clear();
+                MessageBox.Show(exception.Message);
             }
-            else
-            {
-                MessageBox.Show("Not Saved");
-            }
-
-            GridShowData();
         }
 
         private void GridShowData()
@@ -192,6 +201,28 @@ namespace StockManagementSystemSpyCoder
             errorLabel.Text = "";
             categorySetupNameTextBox.Text = "";
             categoryIdTextBox.Text = "";
+        }
+        private bool Exists(Category category)
+        {
+            bool isExists = false;
+            sqlConnection = new SqlConnection(connection.connectionString);
+            string query = @"SELECT * FROM Categories WHERE Name ='" + category.Name + "'";
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+            sqlConnection.Open();
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+
+            if (dataTable.Rows.Count > 0)
+            {
+                isExists = true;
+            }
+            else
+            {
+                isExists = false;
+            }
+            sqlConnection.Close();  
+            return isExists;
         }
 
     }

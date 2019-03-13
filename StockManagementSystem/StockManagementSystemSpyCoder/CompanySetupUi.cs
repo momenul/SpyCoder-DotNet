@@ -29,13 +29,19 @@ namespace StockManagementSystemSpyCoder
         private void CompanySetupSaveButton_Click(object sender, EventArgs e)
         {
             try
-            {
+            {             
+                company.Name = companySetupNameTextBox.Text;
+                bool isExits = Exists(company);
+                if (isExits)
+                {
+                    MessageBox.Show("This name already exits.");
+                    return;
+                }
                 if (string.IsNullOrEmpty(companySetupNameTextBox.Text))
                 {
                     errorLabel.Text = "Please enter the value.";
                     return;
                 }
-                company.Name = companySetupNameTextBox.Text;
                 bool isSave = Add(company);
                 if (isSave)
                 {
@@ -141,7 +147,7 @@ namespace StockManagementSystemSpyCoder
         private void updateButton_Click(object sender, EventArgs e)
         {
             try
-            {
+            {               
                 if (string.IsNullOrEmpty(companySetupNameTextBox.Text))
                 {
                     errorLabel.Text = "Please enter the value.";
@@ -194,6 +200,28 @@ namespace StockManagementSystemSpyCoder
             errorLabel.Text = "";
             companySetupNameTextBox.Text = "";
             companyIdTextBox.Text = "";
+        }
+        private bool Exists(Company company)
+        {
+            bool isExists = false;
+            sqlConnection = new SqlConnection(connection.connectionString);
+            string query = @"SELECT * FROM Companies WHERE Name ='" + company.Name + "'";
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+            sqlConnection.Open();
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+
+            if (dataTable.Rows.Count > 0)
+            {
+                isExists = true;
+            }
+            else
+            {
+                isExists = false;
+            }
+            sqlConnection.Close();
+            return isExists;
         }
     }
 }

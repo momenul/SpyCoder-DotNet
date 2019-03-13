@@ -167,6 +167,11 @@ namespace StockManagementSystemSpyCoder
         {
             item.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
             itemComboBox.DataSource = GetItemsCombo(item);
+            if (itemComboBox.Text == "")
+            {
+                reorderLevelTextBox.Text = "";
+                avalibleQuantityTextBox.Text = "";
+            }
         }
 
         private void itemComboBox_SelectedIndexChanged(object sender, EventArgs e)

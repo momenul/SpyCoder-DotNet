@@ -127,7 +127,7 @@
             // 
             this.StockOutLostButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.StockOutLostButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StockOutLostButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StockOutLostButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StockOutLostButton.ForeColor = System.Drawing.Color.White;
             this.StockOutLostButton.Location = new System.Drawing.Point(459, 415);
             this.StockOutLostButton.Name = "StockOutLostButton";
@@ -141,7 +141,7 @@
             // 
             this.StockOutDamageButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.StockOutDamageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StockOutDamageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StockOutDamageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StockOutDamageButton.ForeColor = System.Drawing.Color.White;
             this.StockOutDamageButton.Location = new System.Drawing.Point(342, 415);
             this.StockOutDamageButton.Name = "StockOutDamageButton";
@@ -155,7 +155,7 @@
             // 
             this.StockOutSellButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.StockOutSellButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StockOutSellButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StockOutSellButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StockOutSellButton.ForeColor = System.Drawing.Color.White;
             this.StockOutSellButton.Location = new System.Drawing.Point(225, 415);
             this.StockOutSellButton.Name = "StockOutSellButton";
@@ -217,11 +217,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Century Schoolbook", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Century Schoolbook", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(200, 46);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 15);
+            this.label4.Size = new System.Drawing.Size(34, 16);
             this.label4.TabIndex = 49;
             this.label4.Text = "Item";
             // 
@@ -229,31 +229,31 @@
             // 
             this.label5.AutoSize = true;
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Font = new System.Drawing.Font("Century Schoolbook", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(134, 108);
+            this.label5.Font = new System.Drawing.Font("Century Schoolbook", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(126, 108);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 15);
+            this.label5.Size = new System.Drawing.Size(108, 16);
             this.label5.TabIndex = 51;
             this.label5.Text = "Avalible Quantity";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Schoolbook", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Century Schoolbook", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(175, 15);
+            this.label3.Location = new System.Drawing.Point(173, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 15);
+            this.label3.Size = new System.Drawing.Size(61, 16);
             this.label3.TabIndex = 50;
             this.label3.Text = "Company";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Schoolbook", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(132, 139);
+            this.label2.Font = new System.Drawing.Font("Century Schoolbook", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(118, 139);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 15);
+            this.label2.Size = new System.Drawing.Size(116, 16);
             this.label2.TabIndex = 52;
             this.label2.Text = "Stock Out Quantity";
             // 
@@ -261,7 +261,7 @@
             // 
             this.StockOutAddButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.StockOutAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StockOutAddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StockOutAddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StockOutAddButton.ForeColor = System.Drawing.Color.White;
             this.StockOutAddButton.Location = new System.Drawing.Point(353, 167);
             this.StockOutAddButton.Name = "StockOutAddButton";
@@ -274,10 +274,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(151, 77);
+            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(149, 77);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 15);
+            this.label1.Size = new System.Drawing.Size(85, 16);
             this.label1.TabIndex = 53;
             this.label1.Text = "Reorder Level";
             // 
@@ -302,7 +302,7 @@
             this.Controls.Add(this.StockOutAddButton);
             this.Controls.Add(this.label1);
             this.Name = "StockOut";
-            this.Size = new System.Drawing.Size(598, 459);
+            this.Size = new System.Drawing.Size(598, 462);
             this.Load += new System.EventHandler(this.StockOut_Load);
             ((System.ComponentModel.ISupportInitialize)(this.stockOutDataGridView)).EndInit();
             this.ResumeLayout(false);

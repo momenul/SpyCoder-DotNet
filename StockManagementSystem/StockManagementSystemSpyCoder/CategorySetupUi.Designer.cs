@@ -40,16 +40,17 @@
             // 
             // categorySetupNameTextBox
             // 
+            this.categorySetupNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categorySetupNameTextBox.Location = new System.Drawing.Point(228, 63);
             this.categorySetupNameTextBox.Name = "categorySetupNameTextBox";
-            this.categorySetupNameTextBox.Size = new System.Drawing.Size(261, 20);
+            this.categorySetupNameTextBox.Size = new System.Drawing.Size(261, 21);
             this.categorySetupNameTextBox.TabIndex = 29;
             // 
             // categorySetupSaveButton
             // 
             this.categorySetupSaveButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.categorySetupSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.categorySetupSaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categorySetupSaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categorySetupSaveButton.ForeColor = System.Drawing.Color.White;
             this.categorySetupSaveButton.Location = new System.Drawing.Point(399, 99);
             this.categorySetupSaveButton.Name = "categorySetupSaveButton";
@@ -62,11 +63,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(89, 63);
+            this.label1.Location = new System.Drawing.Point(141, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.Size = new System.Drawing.Size(42, 16);
             this.label1.TabIndex = 27;
             this.label1.Text = "Name";
             // 
@@ -103,9 +104,9 @@
             // 
             this.updateButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.updateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateButton.ForeColor = System.Drawing.Color.Linen;
-            this.updateButton.Location = new System.Drawing.Point(399, 99);
+            this.updateButton.Location = new System.Drawing.Point(398, 99);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(90, 34);
             this.updateButton.TabIndex = 33;

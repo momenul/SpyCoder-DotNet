@@ -89,7 +89,7 @@
             this.panel1.Controls.Add(this.SetupCategoryButton);
             this.panel1.Location = new System.Drawing.Point(0, 114);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(192, 452);
+            this.panel1.Size = new System.Drawing.Size(192, 1126);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -413,7 +413,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 565);
+            this.panel4.Location = new System.Drawing.Point(0, 590);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(893, 17);
             this.panel4.TabIndex = 3;
@@ -471,7 +471,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(893, 582);
+            this.ClientSize = new System.Drawing.Size(893, 607);
             this.Controls.Add(this.searchAndViewPanal);
             this.Controls.Add(this.stockInPanal);
             this.Controls.Add(this.itemSetupPanal);

@@ -17,6 +17,7 @@ namespace StockManagementSystemSpyCoder
             InitializeComponent();
             hoverPanel.Height = StockOutButton.Height;
             hoverPanel.BringToFront();
+            categorySetupPanel.BringToFront();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

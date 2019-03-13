@@ -85,6 +85,11 @@ namespace StockManagementSystemSpyCoder
             {
                 item.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
                 itemComboBox.DataSource = GetItemComboData(item);
+                if (itemComboBox.Text == "")
+                {
+                    reorderLevelTextBox.Text = "";
+                    avalibleQuantityTextBox.Text = "";
+                }
             }
             catch (Exception exception)
             {
@@ -93,7 +98,7 @@ namespace StockManagementSystemSpyCoder
         }
 
         private void itemComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {          
             item.Id = Convert.ToInt32(itemComboBox.SelectedValue);
             GetItemData(item);
             reorderLevelTextBox.Text = item.ReorderLevel.ToString();
@@ -211,10 +216,20 @@ namespace StockManagementSystemSpyCoder
         {
             stockOutDataGridView.Rows.Clear();
         }
+
+        private void CheckGridData()
+        {
+            if (stockOutDataGridView.Rows.Count == 0)
+            {
+                throw new Exception("Please add item.");
+                
+            }
+        }
         private void StockOutSellButton_Click(object sender, EventArgs e)
         {
             try
             {
+                CheckGridData();
                 stockout.Type = "Sell";
                 bool isSave = IsertStockOutData(stockout);
                 if (isSave)
@@ -236,6 +251,7 @@ namespace StockManagementSystemSpyCoder
         {
             try
             {
+                CheckGridData();
                 stockout.Type = "Damage";
                 bool isSave = IsertStockOutData(stockout);
                 if (isSave)
@@ -258,6 +274,7 @@ namespace StockManagementSystemSpyCoder
         {
             try
             {
+                CheckGridData();
                 stockout.Type = "Lost";
                 bool isSave = IsertStockOutData(stockout);
                 if (isSave)

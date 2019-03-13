@@ -55,18 +55,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(195, 75);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(196, 71);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.Size = new System.Drawing.Size(50, 15);
             this.label2.TabIndex = 80;
             this.label2.Text = "To Date";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(185, 27);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(186, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(65, 15);
             this.label1.TabIndex = 79;
             this.label1.Text = "From Date";
             // 
@@ -96,11 +98,11 @@
             this.SalesBetweenTwoDataSearchButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.SalesBetweenTwoDataSearchButton.Cursor = System.Windows.Forms.Cursors.Default;
             this.SalesBetweenTwoDataSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SalesBetweenTwoDataSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalesBetweenTwoDataSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalesBetweenTwoDataSearchButton.ForeColor = System.Drawing.Color.White;
             this.SalesBetweenTwoDataSearchButton.Location = new System.Drawing.Point(374, 112);
             this.SalesBetweenTwoDataSearchButton.Name = "SalesBetweenTwoDataSearchButton";
-            this.SalesBetweenTwoDataSearchButton.Size = new System.Drawing.Size(86, 32);
+            this.SalesBetweenTwoDataSearchButton.Size = new System.Drawing.Size(86, 35);
             this.SalesBetweenTwoDataSearchButton.TabIndex = 77;
             this.SalesBetweenTwoDataSearchButton.Text = "Search";
             this.SalesBetweenTwoDataSearchButton.UseVisualStyleBackColor = false;

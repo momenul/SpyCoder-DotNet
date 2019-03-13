@@ -61,7 +61,7 @@
             // 
             this.CompanySetupSaveButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.CompanySetupSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CompanySetupSaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompanySetupSaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CompanySetupSaveButton.ForeColor = System.Drawing.Color.White;
             this.CompanySetupSaveButton.Location = new System.Drawing.Point(395, 110);
             this.CompanySetupSaveButton.Name = "CompanySetupSaveButton";
@@ -74,10 +74,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(66, 67);
+            this.label1.Font = new System.Drawing.Font("Century Schoolbook", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(154, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.Size = new System.Drawing.Size(42, 16);
             this.label1.TabIndex = 29;
             this.label1.Text = "Name";
             // 
@@ -85,9 +85,9 @@
             // 
             this.updateButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.updateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateButton.ForeColor = System.Drawing.Color.White;
-            this.updateButton.Location = new System.Drawing.Point(395, 110);
+            this.updateButton.Location = new System.Drawing.Point(394, 110);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(95, 35);
             this.updateButton.TabIndex = 33;
