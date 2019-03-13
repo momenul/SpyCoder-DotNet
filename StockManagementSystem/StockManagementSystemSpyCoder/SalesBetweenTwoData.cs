@@ -25,7 +25,10 @@ namespace StockManagementSystemSpyCoder
         {
             try
             {
-                DataTable dataTable = GetSellData();
+                string fromDate = FromDateTimePicker.Value.ToShortDateString();
+                string toDate = toTateTimePicker.Value.ToShortDateString();
+
+                DataTable dataTable = GetSellData(fromDate, toDate);
                 salesBetweenDataGridView.DataSource = dataTable;
                 foreach (DataGridViewRow row in salesBetweenDataGridView.Rows)
                 {
@@ -39,12 +42,9 @@ namespace StockManagementSystemSpyCoder
                 
         }
 
-        private DataTable GetSellData()
+        private DataTable GetSellData(string fromDate, string toDate)
         {
-            DataTable dataTable = new DataTable();
-            string fromDate = FromDateTimePicker.Value.ToShortDateString();
-            string toDate = toTateTimePicker.Value.ToString();
-
+            DataTable dataTable = new DataTable();           
             //string query = @"select StockOut.Id, Items.Name as Item, StockOut.StockOutDate, StockOut.Quantity as 'Sell Quantity' from StockOut inner join Items on StockOut.ItemId=Items.Id where StockOut.StockOutDate BETWEEN '" + fromDate + "' and '" + toDate + "' and StockOut.Type='Sell'";
             string query = @"select Item, Quantity from SellDataView where StockOutDate BETWEEN '" + fromDate + "' and '" + toDate + "' and Type='Sell'";
             SqlCommand sqlCommand = new SqlCommand(query, connection.sqlConnection());

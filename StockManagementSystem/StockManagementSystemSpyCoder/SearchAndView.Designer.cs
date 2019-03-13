@@ -127,7 +127,7 @@
             // 
             // SL
             // 
-            this.SL.HeaderText = "SL.No";
+            this.SL.HeaderText = "SL";
             this.SL.Name = "SL";
             this.SL.ReadOnly = true;
             this.SL.Width = 40;

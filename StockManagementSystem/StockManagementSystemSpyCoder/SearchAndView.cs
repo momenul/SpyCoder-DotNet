@@ -51,13 +51,9 @@ namespace StockManagementSystemSpyCoder
                 {
 
                     sqlConnection = new SqlConnection(connection.connectionString);
-                    string query = @"SELECT * FROM ViewItems WHERE Company = '" + companySearch + "' and Category='" + categorySearch + "'";
-                    //string query = @"SELECT * FROM ViewsSearch WHERE Companie = '" + companySearch + "' and Categorie='" + categorySearch + "'";
-
+                    string query = @"SELECT * FROM ViewsSearch WHERE Company = '" + companySearch + "' and Category='" + categorySearch + "'";
                     SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-
                     sqlConnection.Open();
-
                     SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
                     DataTable dataTable = new DataTable();
                     sqlDataAdapter.Fill(dataTable);
