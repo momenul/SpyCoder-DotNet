@@ -47,6 +47,7 @@
             // 
             this.companyComboBox.DataSource = this.companieBindingSource;
             this.companyComboBox.DisplayMember = "Name";
+            this.companyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.companyComboBox.FormattingEnabled = true;
             this.companyComboBox.Location = new System.Drawing.Point(289, 44);
             this.companyComboBox.Name = "companyComboBox";
@@ -63,6 +64,7 @@
             // 
             this.categoryComboBox.DataSource = this.categorieBindingSource;
             this.categoryComboBox.DisplayMember = "Name";
+            this.categoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.Location = new System.Drawing.Point(289, 88);
             this.categoryComboBox.Name = "categoryComboBox";
@@ -97,8 +99,9 @@
             // 
             // SearchAndViewButton
             // 
-            this.SearchAndViewButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.SearchAndViewButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.SearchAndViewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchAndViewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchAndViewButton.ForeColor = System.Drawing.Color.White;
             this.SearchAndViewButton.Location = new System.Drawing.Point(386, 152);
             this.SearchAndViewButton.Name = "SearchAndViewButton";
@@ -126,6 +129,7 @@
             // 
             this.SL.HeaderText = "SL.No";
             this.SL.Name = "SL";
+            this.SL.ReadOnly = true;
             this.SL.Width = 40;
             // 
             // SearchAndView

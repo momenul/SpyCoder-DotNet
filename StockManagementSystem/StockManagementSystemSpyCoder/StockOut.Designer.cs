@@ -30,6 +30,12 @@
         {
             this.errorLabel = new System.Windows.Forms.Label();
             this.stockOutDataGridView = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StockOutLostButton = new System.Windows.Forms.Button();
             this.StockOutDamageButton = new System.Windows.Forms.Button();
             this.StockOutSellButton = new System.Windows.Forms.Button();
@@ -44,12 +50,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.StockOutAddButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.stockOutDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,9 +82,50 @@
             this.stockOutDataGridView.TabIndex = 63;
             this.stockOutDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.stockOutDataGridView_CellDoubleClick);
             // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "SL";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 50;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Item";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 170;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Company";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 160;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Quantity";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "ItemId";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Visible = false;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Avalible Quantity";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
+            // 
             // StockOutLostButton
             // 
-            this.StockOutLostButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.StockOutLostButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.StockOutLostButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StockOutLostButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StockOutLostButton.ForeColor = System.Drawing.Color.White;
@@ -98,7 +139,7 @@
             // 
             // StockOutDamageButton
             // 
-            this.StockOutDamageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.StockOutDamageButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.StockOutDamageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StockOutDamageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StockOutDamageButton.ForeColor = System.Drawing.Color.White;
@@ -112,7 +153,7 @@
             // 
             // StockOutSellButton
             // 
-            this.StockOutSellButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.StockOutSellButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.StockOutSellButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StockOutSellButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StockOutSellButton.ForeColor = System.Drawing.Color.White;
@@ -127,6 +168,7 @@
             // companyComboBox
             // 
             this.companyComboBox.DisplayMember = "Name";
+            this.companyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.companyComboBox.FormattingEnabled = true;
             this.companyComboBox.Location = new System.Drawing.Point(252, 12);
             this.companyComboBox.Name = "companyComboBox";
@@ -139,6 +181,7 @@
             // 
             this.itemComboBox.AllowDrop = true;
             this.itemComboBox.DisplayMember = "Name";
+            this.itemComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.itemComboBox.FormattingEnabled = true;
             this.itemComboBox.Location = new System.Drawing.Point(252, 44);
             this.itemComboBox.Name = "itemComboBox";
@@ -216,7 +259,7 @@
             // 
             // StockOutAddButton
             // 
-            this.StockOutAddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.StockOutAddButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.StockOutAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StockOutAddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StockOutAddButton.ForeColor = System.Drawing.Color.White;
@@ -237,47 +280,6 @@
             this.label1.Size = new System.Drawing.Size(80, 15);
             this.label1.TabIndex = 53;
             this.label1.Text = "Reorder Level";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "SL";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 50;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Item";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 170;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Company";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 160;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Quantity";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "ItemId";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Visible = false;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Avalible Quantity";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Visible = false;
             // 
             // StockOut
             // 

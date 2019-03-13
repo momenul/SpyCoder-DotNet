@@ -131,7 +131,6 @@ namespace StockManagementSystemSpyCoder
             }
             return isReorder;
         }
-        int sl = 1;
         private void StockOutAddButton_Click_1(object sender, EventArgs e)
         {
             try
@@ -159,16 +158,15 @@ namespace StockManagementSystemSpyCoder
                     {
                         MessageBox.Show("Already add this item..");
                         return;
-                    }
-                    
+                    }                   
                 }
 
                 stockOutDataGridView.Rows.Add("",item.Name, company.Name, stockout.Quantity, item.Id, availabelQuantity);
-                sl++;
 
                 foreach (DataGridViewRow row in stockOutDataGridView.Rows)
+                {
                     row.Cells[0].Value = (row.Index + 1).ToString();
-
+                }
                 avalibleQuantityTextBox.Text = (Convert.ToInt32(avalibleQuantityTextBox.Text) -
                                                Convert.ToInt32(stockOutQuantityTextBox.Text)).ToString();
                 bool isReorder = CheckReorder();
@@ -214,16 +212,13 @@ namespace StockManagementSystemSpyCoder
                 }
                 sqlConnection.Close();
             }
-
             return isSuccess;
-
         }
 
 
         private void DataGridViewClear()
         {
             stockOutDataGridView.Rows.Clear();
-            sl = 1;
         }
 
         private void StockOutSellButton_Click(object sender, EventArgs e)
@@ -296,8 +291,7 @@ namespace StockManagementSystemSpyCoder
         {
             int rowIndex = stockOutDataGridView.CurrentCell.RowIndex;
             stockOutDataGridView.Rows.RemoveAt(rowIndex);
+            avalibleQuantityTextBox.Text = item.Quantity.ToString();
         }    
-
-
     }
 }

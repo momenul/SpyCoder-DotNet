@@ -51,6 +51,7 @@
             // 
             this.companyComboBox.DataSource = this.itemBindingSource;
             this.companyComboBox.DisplayMember = "Name";
+            this.companyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.companyComboBox.FormattingEnabled = true;
             this.companyComboBox.Location = new System.Drawing.Point(276, 65);
             this.companyComboBox.Name = "companyComboBox";
@@ -67,6 +68,7 @@
             // 
             this.itemComboBox.DataSource = this.itemBindingSource;
             this.itemComboBox.DisplayMember = "Name";
+            this.itemComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.itemComboBox.FormattingEnabled = true;
             this.itemComboBox.Location = new System.Drawing.Point(276, 109);
             this.itemComboBox.Name = "itemComboBox";
@@ -122,8 +124,9 @@
             // 
             // StockInSaveButton
             // 
-            this.StockInSaveButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.StockInSaveButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.StockInSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StockInSaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StockInSaveButton.ForeColor = System.Drawing.Color.White;
             this.StockInSaveButton.Location = new System.Drawing.Point(368, 308);
             this.StockInSaveButton.Name = "StockInSaveButton";

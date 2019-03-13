@@ -15,7 +15,7 @@ namespace StockManagementSystemSpyCoder
     public partial class CategorySetupUi : UserControl
     {
 
-        Category categorie = new Category();
+        Category category = new Category();
 
         Connection connection = new Connection();
         private SqlConnection sqlConnection;
@@ -23,35 +23,43 @@ namespace StockManagementSystemSpyCoder
         public CategorySetupUi()
         {
             InitializeComponent();
-            GetValue();
+            GridShowData();
             
         }
 
         private void categorySetupSaveButton_Click(object sender, EventArgs e)
         {
-            categorie.Name = categorySetupNameTextBox.Text;
+            category.Name = categorySetupNameTextBox.Text;
 
-            bool isSave = Add(categorie);
+            if (string.IsNullOrEmpty(categorySetupNameTextBox.Text))
+            {
+                errorLabel.Text = "Please enter the value.";
+                return;
+            }
+
+            bool isSave = Add(category);
 
             if (isSave)
             {
                 MessageBox.Show("Saved");
+                Clear();
             }
             else
             {
                 MessageBox.Show("Not Saved");
             }
 
-            GetValue();
+            GridShowData();
         }
 
-        private void GetValue()
+        private void GridShowData()
         {
             DataTable dataTable = GetData();
             categoriesGridView.DataSource = dataTable;
+            categoriesGridView.Columns[1].Visible = false;          
             foreach (DataGridViewRow row in categoriesGridView.Rows)
             {
-                row.Cells["SL"].Value = (row.Index + 1).ToString();
+                row.Cells[0].Value = (row.Index + 1).ToString();             
             }
         }
 
@@ -61,11 +69,13 @@ namespace StockManagementSystemSpyCoder
             try
             {
                 sqlConnection= new SqlConnection(connection.connectionString);
-                string query = @"SELECT Name FROM Categories";
+                string query = @"SELECT * FROM Categories";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
                 sqlDataAdapter.Fill(dataTable);
+                DataColumn col = dataTable.Columns.Add("SL", typeof(int));
+                col.SetOrdinal(0);
 
             }
             catch (Exception exception)
@@ -83,37 +93,105 @@ namespace StockManagementSystemSpyCoder
             try
             {
                 sqlConnection= new SqlConnection(connection.connectionString);
-                // SqlConnection sqlConnection = new SqlConnection(connectionString);
                 string query = @"INSERT INTO Categories (Name) VALUES ('" + categorie.Name + "')";
-
-                //5
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                //6
                 sqlConnection.Open();
-                //7
                 int isExecuted = sqlCommand.ExecuteNonQuery();
                 if (isExecuted > 0)
                 {
-                    //MessageBox.Show("Saved");
                     isSucces = true;
                 }
                 else
                 {
-                    //MessageBox.Show("Not Saved");
                     isSucces = false;
                 }
-
                 sqlConnection.Close();
-
-
             }
             catch (Exception exception)
             {
-
                 MessageBox.Show(exception.Message);
             }
             return isSucces;
+        }
 
+        private void categoriesGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = this.categoriesGridView.Rows[e.RowIndex];
+                    categorySetupNameTextBox.Text = row.Cells["Name"].Value.ToString();
+                    categoryIdTextBox.Text = row.Cells["Id"].Value.ToString();
+
+                    categorySetupSaveButton.Hide();
+                    updateButton.Show();
+                    errorLabel.Text = "";
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(categorySetupNameTextBox.Text))
+                {
+                    errorLabel.Text = "Please enter the value.";
+                    return;
+                }
+                category.Id = Convert.ToInt32(categoryIdTextBox.Text);
+                category.Name = categorySetupNameTextBox.Text;
+                bool isUpdate = Update(category);
+                if (isUpdate)
+                {
+                    updateButton.Hide();
+                    categorySetupSaveButton.Show();
+                    Clear();
+                    MessageBox.Show("Updated");
+                }
+                else
+                {
+                    MessageBox.Show("Not Updated.");
+                }
+                GridShowData();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            
+        }
+        private bool Update(Category category)
+        {
+            bool isSucces = false;         
+            sqlConnection = new SqlConnection(connection.connectionString);
+            string query = @"update Categories set Name = '"+ category.Name +"' where Id = "+ category.Id +"";
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+            sqlConnection.Open();
+            int isExecuted = sqlCommand.ExecuteNonQuery();
+            if (isExecuted > 0)
+            {
+                isSucces = true;
+            }
+            else
+            {
+                isSucces = false;
+            }
+            sqlConnection.Close();
+            
+            return isSucces;
+        }
+
+        public void Clear()
+        {
+            errorLabel.Text = "";
+            categorySetupNameTextBox.Text = "";
+            categoryIdTextBox.Text = "";
         }
 
     }

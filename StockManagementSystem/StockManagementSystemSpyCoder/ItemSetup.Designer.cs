@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.reorderLevelTextBox = new System.Windows.Forms.TextBox();
             this.ItemSetupSaveButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,11 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
-            this.categorieBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.companyComboBox = new System.Windows.Forms.ComboBox();
-            this.companieBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.companieBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reorderLevelTextBox
@@ -53,8 +48,9 @@
             // 
             // ItemSetupSaveButton
             // 
-            this.ItemSetupSaveButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.ItemSetupSaveButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.ItemSetupSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ItemSetupSaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ItemSetupSaveButton.ForeColor = System.Drawing.Color.White;
             this.ItemSetupSaveButton.Location = new System.Drawing.Point(389, 286);
             this.ItemSetupSaveButton.Name = "ItemSetupSaveButton";
@@ -113,33 +109,23 @@
             // 
             // categoryComboBox
             // 
-            this.categoryComboBox.DataSource = this.categorieBindingSource;
-            this.categoryComboBox.DisplayMember = "Name";
+            this.categoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.Location = new System.Drawing.Point(293, 79);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(186, 21);
             this.categoryComboBox.TabIndex = 13;
             this.categoryComboBox.ValueMember = "Id";
-
-            // categorieBindingSource
-            // 
-            this.categorieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Category);
             // 
             // companyComboBox
             // 
-            this.companyComboBox.DataSource = this.companieBindingSource;
-            this.companyComboBox.DisplayMember = "Name";
+            this.companyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.companyComboBox.FormattingEnabled = true;
             this.companyComboBox.Location = new System.Drawing.Point(293, 123);
             this.companyComboBox.Name = "companyComboBox";
             this.companyComboBox.Size = new System.Drawing.Size(186, 21);
             this.companyComboBox.TabIndex = 14;
             this.companyComboBox.ValueMember = "Id";
-            // 
-            // companieBindingSource
-            // 
-            this.companieBindingSource.DataSource = typeof(StockManagementSystemSpyCoder.Models.Company);
             // 
             // ItemSetup
             // 
@@ -156,8 +142,6 @@
             this.Controls.Add(this.label1);
             this.Name = "ItemSetup";
             this.Size = new System.Drawing.Size(598, 419);
-            ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.companieBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,8 +158,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.ComboBox companyComboBox;
-        private System.Windows.Forms.BindingSource categorieBindingSource;
-        private System.Windows.Forms.BindingSource companieBindingSource;
 
     }
 }

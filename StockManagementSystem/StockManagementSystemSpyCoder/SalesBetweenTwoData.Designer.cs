@@ -93,12 +93,12 @@
             // 
             // SalesBetweenTwoDataSearchButton
             // 
-            this.SalesBetweenTwoDataSearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.SalesBetweenTwoDataSearchButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.SalesBetweenTwoDataSearchButton.Cursor = System.Windows.Forms.Cursors.Default;
             this.SalesBetweenTwoDataSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SalesBetweenTwoDataSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalesBetweenTwoDataSearchButton.ForeColor = System.Drawing.Color.White;
-            this.SalesBetweenTwoDataSearchButton.Location = new System.Drawing.Point(364, 112);
+            this.SalesBetweenTwoDataSearchButton.Location = new System.Drawing.Point(374, 112);
             this.SalesBetweenTwoDataSearchButton.Name = "SalesBetweenTwoDataSearchButton";
             this.SalesBetweenTwoDataSearchButton.Size = new System.Drawing.Size(86, 32);
             this.SalesBetweenTwoDataSearchButton.TabIndex = 77;
