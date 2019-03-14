@@ -119,7 +119,7 @@
             this.Controls.Add(this.salesBetweenDataGridView);
             this.Controls.Add(this.SalesBetweenTwoDataSearchButton);
             this.Name = "SalesBetweenTwoData";
-            this.Size = new System.Drawing.Size(550, 414);
+            this.Size = new System.Drawing.Size(550, 436);
             ((System.ComponentModel.ISupportInitialize)(this.salesBetweenDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -67,7 +67,12 @@ namespace StockManagementSystemSpyCoder
                 item.CategoryId = Convert.ToInt32(categoryComboBox.SelectedValue);
                 item.CompanyId = Convert.ToInt32(companyComboBox.SelectedValue);
                 item.ReorderLevel = Convert.ToInt32(reorderLevelTextBox.Text);
-
+                bool isExits = Exists(item);
+                if (isExits)
+                {
+                    MessageBox.Show("This item already exits.");
+                    return;
+                }
                 bool isExecute = save(item);
                 if (isExecute)
                 {
@@ -131,7 +136,28 @@ namespace StockManagementSystemSpyCoder
             sqlConnection.Close();
             return dataTable;
         }
+        private bool Exists(Item item)
+        {
+            bool isExists = false;
+            sqlConnection = new SqlConnection(connection.connectionString);
+            string query = @"SELECT * FROM Items WHERE Name ='" + item.Name + "'";
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+            sqlConnection.Open();
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
 
+            if (dataTable.Rows.Count > 0)
+            {
+                isExists = true;
+            }
+            else
+            {
+                isExists = false;
+            }
+            sqlConnection.Close();
+            return isExists;
+        }
 
     }
 }

@@ -20,6 +20,14 @@ namespace StockManagementSystemSpyCoder
         {
             InitializeComponent();
         }
+        private void CheckGridData()
+        {
+            if (salesBetweenDataGridView.Rows.Count == 0)
+            {
+                MessageBox.Show("Sorry, not found.");
+
+            }
+        }
 
         private void SalesBetweenTwoDataSearchButton_Click_1(object sender, EventArgs e)
         {
@@ -34,6 +42,7 @@ namespace StockManagementSystemSpyCoder
                 {
                     row.Cells["SL"].Value = (row.Index + 1).ToString();
                 }
+                CheckGridData();
             }
             catch (Exception exception)
             {
@@ -53,5 +62,6 @@ namespace StockManagementSystemSpyCoder
             sqlDataAdapter.Fill(dataTable);
             return dataTable;
         }
+
     }
 }
